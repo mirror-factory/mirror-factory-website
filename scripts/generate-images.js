@@ -8,20 +8,14 @@ const orlandoImage = path.join(__dirname, '..', 'orlando-image.jpg');
 async function generateImages() {
   console.log('Generating images...');
 
-  // 1. Create favicon (mint icon on transparent background)
+  // 1. Create favicon (black square with mint chevron logo)
   console.log('Creating favicon...');
   const faviconSvg = `
     <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <rect width="512" height="512" fill="transparent"/>
-      <g transform="translate(256, 256)">
-        <circle cx="0" cy="0" r="140" fill="none" stroke="#3EB489" stroke-width="6" opacity="0.3"/>
-        <circle cx="0" cy="0" r="105" fill="none" stroke="#3EB489" stroke-width="7" opacity="0.5"/>
-        <circle cx="0" cy="0" r="70" fill="none" stroke="#3EB489" stroke-width="8" opacity="0.8"/>
-        <circle cx="0" cy="0" r="16" fill="#3EB489"/>
-        <line x1="0" y1="-150" x2="0" y2="150" stroke="#3EB489" stroke-width="6" opacity="0.6"/>
-        <line x1="-80" y1="-35" x2="80" y2="-35" stroke="#3EB489" stroke-width="5" opacity="0.4"/>
-        <line x1="-80" y1="0" x2="80" y2="0" stroke="#3EB489" stroke-width="5" opacity="0.4"/>
-        <line x1="-80" y1="35" x2="80" y2="35" stroke="#3EB489" stroke-width="5" opacity="0.4"/>
+      <rect width="512" height="512" fill="#000000"/>
+      <g transform="translate(156, 156) scale(2)">
+        <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#3EB489"/>
+        <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#3EB489"/>
       </g>
     </svg>
   `;
@@ -51,7 +45,7 @@ async function generateImages() {
     <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
@@ -59,16 +53,10 @@ async function generateImages() {
         </filter>
       </defs>
 
-      <!-- Logo Icon -->
-      <g transform="translate(600, 250)">
-        <circle cx="0" cy="0" r="60" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.2"/>
-        <circle cx="0" cy="0" r="45" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.4"/>
-        <circle cx="0" cy="0" r="30" fill="none" stroke="#ffffff" stroke-width="3.5" opacity="0.7"/>
-        <circle cx="0" cy="0" r="6" fill="#ffffff" filter="url(#glow)"/>
-        <line x1="0" y1="-65" x2="0" y2="65" stroke="#ffffff" stroke-width="2.5" opacity="0.5"/>
-        <line x1="-35" y1="-15" x2="35" y2="-15" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
-        <line x1="-35" y1="0" x2="35" y2="0" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
-        <line x1="-35" y1="15" x2="35" y2="15" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+      <!-- Mirror Factory Chevron Logo -->
+      <g transform="translate(490, 180) scale(1.8)">
+        <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#ffffff" filter="url(#glow)"/>
+        <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#ffffff" filter="url(#glow)"/>
       </g>
 
       <!-- Text -->
@@ -103,8 +91,8 @@ async function generateImages() {
   const mainOverlay = `
     <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+        <filter id="glow2">
+          <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
@@ -116,20 +104,14 @@ async function generateImages() {
         </linearGradient>
       </defs>
 
-      <!-- Logo Icon -->
-      <g transform="translate(200, 200)">
-        <circle cx="0" cy="0" r="50" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.2"/>
-        <circle cx="0" cy="0" r="38" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.4"/>
-        <circle cx="0" cy="0" r="25" fill="none" stroke="#ffffff" stroke-width="3.5" opacity="0.7"/>
-        <circle cx="0" cy="0" r="5" fill="#ffffff" filter="url(#glow)"/>
-        <line x1="0" y1="-55" x2="0" y2="55" stroke="#ffffff" stroke-width="2.5" opacity="0.5"/>
-        <line x1="-30" y1="-13" x2="30" y2="-13" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
-        <line x1="-30" y1="0" x2="30" y2="0" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
-        <line x1="-30" y1="13" x2="30" y2="13" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+      <!-- Mirror Factory Chevron Logo -->
+      <g transform="translate(90, 150) scale(1.4)">
+        <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#ffffff" filter="url(#glow2)"/>
+        <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#ffffff" filter="url(#glow2)"/>
       </g>
 
       <!-- Main Text -->
-      <text x="200" y="330" font-family="serif" font-size="56" font-weight="500" fill="#ffffff" text-anchor="middle" filter="url(#glow)">
+      <text x="200" y="330" font-family="serif" font-size="56" font-weight="500" fill="#ffffff" text-anchor="middle" filter="url(#glow2)">
         Mirror Factory
       </text>
       <text x="200" y="370" font-family="sans-serif" font-size="16" letter-spacing="3" fill="#a1a1aa" text-anchor="middle">
@@ -137,13 +119,13 @@ async function generateImages() {
       </text>
 
       <!-- Tagline -->
-      <text x="700" y="280" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
-        <tspan x="700" dy="0">Intelligence</tspan>
+      <text x="750" y="280" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
+        <tspan x="750" dy="0">Intelligence</tspan>
       </text>
-      <text x="700" y="340" font-family="serif" font-size="48" font-weight="500" fill="url(#mintGradient)" text-anchor="middle" font-style="italic" filter="url(#glow)">
+      <text x="750" y="340" font-family="serif" font-size="48" font-weight="500" fill="url(#mintGradient)" text-anchor="middle" font-style="italic" filter="url(#glow2)">
         Requires
       </text>
-      <text x="700" y="400" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
+      <text x="750" y="400" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
         Reflection.
       </text>
     </svg>

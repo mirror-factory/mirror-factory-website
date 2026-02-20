@@ -822,10 +822,15 @@ export default function MirrorFactoryApp() {
     }
     return 'home'
   })
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Trigger loading animation on mount - only runs once
+    // Set mounted flag and show loading animation only on client
+    setIsMounted(true)
+    setIsLoading(true)
+
+    // Trigger loading animation - only runs once
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 1200) // Faster: 0.8s bars + 0.4s fade in
