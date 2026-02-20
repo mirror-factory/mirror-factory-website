@@ -154,6 +154,19 @@ const GLOBAL_CSS_ANIMATIONS = `
   }
   .animate-frost-glass { animation: frost-glass 6s ease-in-out infinite; }
 
+  @keyframes float-particle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-80px) scale(1.2); opacity: 0.6; }
+  }
+  .animate-float-particle { animation: float-particle 8s ease-in-out infinite; }
+
+  @keyframes shimmer-scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(200%); opacity: 0; }
+  }
+  .animate-shimmer-scan { animation: shimmer-scan 10s ease-in-out infinite; }
+
   @keyframes ripple-reflect {
     0% { transform: translateY(0) scaleY(1); opacity: 0.15; }
     50% { transform: translateY(-10px) scaleY(1.08); opacity: 0.25; }
@@ -811,9 +824,33 @@ export default function MirrorFactoryApp() {
                     return (
                       <div
                         key={i}
-                        className={`h-full hidden md:block ${isFrostPanel ? 'animate-frost-glass' : ''}`}
+                        className={`h-full hidden md:block relative ${isFrostPanel ? 'animate-frost-glass' : ''}`}
                         style={isFrostPanel ? { animationDelay: `${animationDelay}s` } : {}}
-                      />
+                      >
+                        {isFrostPanel && (
+                          <>
+                            {/* Floating particles */}
+                            <div
+                              className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-[#3EB489]/40 animate-float-particle"
+                              style={{ animationDelay: `${animationDelay + 0.5}s` }}
+                            />
+                            <div
+                              className="absolute top-1/2 left-2/3 w-1.5 h-1.5 rounded-full bg-[#EA580C]/30 animate-float-particle"
+                              style={{ animationDelay: `${animationDelay + 1}s` }}
+                            />
+                            <div
+                              className="absolute top-3/4 left-1/2 w-1 h-1 rounded-full bg-white/20 animate-float-particle"
+                              style={{ animationDelay: `${animationDelay + 1.5}s` }}
+                            />
+
+                            {/* Scanning shimmer effect */}
+                            <div
+                              className="absolute inset-x-0 h-32 bg-gradient-to-b from-transparent via-[#3EB489]/10 to-transparent animate-shimmer-scan"
+                              style={{ animationDelay: `${animationDelay + 2}s` }}
+                            />
+                          </>
+                        )}
+                      </div>
                     );
                   })}
                 </div>
