@@ -941,12 +941,12 @@ export default function MirrorFactoryApp() {
                   <div className="absolute bottom-1/3 -left-1/4 w-[200%] h-24 bg-gradient-to-r from-transparent via-teal-400/4 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDelay: '8s', animationDuration: '16s' }} />
                 </div>
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-50">Our Methodology</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-50">The Architecture of Study</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <TheSieveSVG isDarkMode={true} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-50">The Sieve & The Signal</h3>
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-50">Signal Preservation</h3>
                     <p className="font-light text-zinc-400 leading-relaxed text-sm">
                       In an era of overwhelming digital noise, we explore how to preserve the true human signal. We study how our authentic voice, creativity, and storytelling can thrive, rather than be washed away, when co-creating with AI.
                     </p>
