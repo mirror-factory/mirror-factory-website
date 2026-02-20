@@ -208,6 +208,24 @@ const GLOBAL_CSS_ANIMATIONS = `
   .animate-diagonal-sweep { animation: diagonal-sweep 15s ease-in-out infinite; }
   .animate-reflect-bounce { animation: reflect-bounce 8s ease-in-out infinite; }
 
+  @keyframes glow-pulse {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(62, 180, 137, 0.4)); }
+    50% { filter: drop-shadow(0 0 20px rgba(62, 180, 137, 0.8)); }
+  }
+  .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+  @keyframes slide-up-fade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-up { animation: slide-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+
   @keyframes scan-lines {
     0% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 20; }
@@ -749,13 +767,13 @@ export default function MirrorFactoryApp() {
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <span className="text-xs font-mono uppercase tracking-widest opacity-40 hidden sm:block border-r border-zinc-300 dark:border-zinc-700 pr-6">Human Factors Research</span>
-          <button
-            onClick={() => setCurrentPage(currentPage === 'home' ? 'brand-guide' : 'home')}
-            className="text-xs font-mono uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-[#3EB489] transition-all hidden sm:block"
+          <a
+            href="mailto:hello@mirrorfactory.com"
+            className="text-xs font-mono tracking-wider opacity-70 hover:opacity-100 hover:text-[#3EB489] transition-all hidden sm:flex items-center gap-2 text-zinc-900 dark:text-zinc-300"
           >
-            {currentPage === 'home' ? 'Brand Guide' : 'Home'}
-          </button>
+            <Mail size={14} />
+            <span>hello@mirrorfactory.com</span>
+          </a>
           <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-[#3EB489] dark:hover:border-[#3EB489] transition-all group">
             {isDarkMode ? <Sun size={16} className="group-hover:text-[#3EB489] transition-colors" /> : <Moon size={16} className="group-hover:text-[#3EB489] transition-colors" />}
           </button>
@@ -776,35 +794,35 @@ export default function MirrorFactoryApp() {
             // =========================================================
             <>
               {/* HERO */}
-              <div className="md:col-span-3 border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-12 sm:pb-16 fade-in relative min-h-[35vh] md:min-h-[85vh]">
-                 <div className="w-12 h-[2px] mint-bg mb-6 sm:mb-8" />
-                 <p className="text-xs sm:text-sm opacity-70 mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <div className="md:col-span-3 order-2 md:order-1 border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
+                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up" />
+                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400 animate-slide-up delay-200">
                    &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
                  </p>
-                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400">— Ray Bradbury, Fahrenheit 451</p>
+                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400 animate-slide-up delay-300">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:p-24 flex flex-col justify-center min-h-[50vh] md:min-h-[85vh] animate-reveal border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 order-1 md:order-2 p-6 sm:p-8 md:p-16 lg:p-20 xl:p-24 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
                 {/* Hero Background - Gradient Glows Only */}
                 <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/8 dark:from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none" />
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift" style={{ animationDelay: '2s' }} />
                 <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none" style={{ animationDelay: '5s' }} />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/5 dark:from-[#3EB489]/8 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none" style={{ animationDelay: '3s' }} />
 
-                <div className="max-w-4xl relative z-10">
-                  <div className="flex items-center gap-3 mb-6 sm:mb-8 opacity-60">
+                <div className="max-w-4xl relative z-10 w-full">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up">
                     <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-400">Human Factors AI Research</span>
+                    <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-300">Human Factors AI Research</span>
                   </div>
 
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-medium leading-[0.95] mb-8 md:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50">
-                    Intelligence <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3EB489] to-teal-700 italic pr-4">Requires</span> <br />
+                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-medium leading-[1.05] sm:leading-[1] md:leading-[0.95] mb-6 sm:mb-8 md:mb-10 lg:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50 animate-slide-up delay-200">
+                    Intelligence <br className="hidden sm:block" />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3EB489] to-teal-700 italic pr-2 sm:pr-4 animate-glow-pulse">Requires</span> <br className="hidden sm:block" />
                     Reflection.
                   </h1>
 
-                  <div className="border-l border-[#3EB489]/50 pl-6 sm:pl-8 mb-12 sm:mb-16 py-2">
-                    <p className="text-xl sm:text-2xl lg:text-3xl font-serif text-zinc-600 dark:text-zinc-400 leading-snug font-light max-w-2xl">
+                  <div className="border-l border-[#3EB489]/50 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-400">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-600 dark:text-zinc-400 leading-snug font-extralight max-w-2xl">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
                   </div>
@@ -966,8 +984,14 @@ export default function MirrorFactoryApp() {
                 </div>
 
                 <div className="flex flex-col items-start md:items-end gap-6">
-                  <div className="flex gap-6 opacity-80">
-                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact</a>
+                  <div className="flex flex-col items-start md:items-end gap-4 opacity-80">
+                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact — hello@mirrorfactory.com</a>
+                    <button
+                      onClick={() => setCurrentPage('brand-guide')}
+                      className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"
+                    >
+                      <Palette size={18} /> Brand Guide
+                    </button>
                   </div>
                   <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-900 dark:text-zinc-400">
                     © {new Date().getFullYear()} Mirror Factory. All rights reserved.
