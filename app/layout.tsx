@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Mirror Factory',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Mirror Factory - Human Factors AI Research',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mirror Factory | Human Factors AI Research',
     description: 'Mirror Factory conducts human factors AI research and builds tools to ensure the machinery of tomorrow doesn\'t overwrite the humanity of today.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 

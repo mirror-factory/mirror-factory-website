@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Mirror Factory',
     images: [
       {
-        url: '/og-brand-guide.svg',
+        url: '/og-brand-guide.png',
         width: 1200,
         height: 630,
         alt: 'Mirror Factory Brand Guide',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Brand Guide | Mirror Factory',
     description: 'Mirror Factory brand guide featuring logo variations, color palette, typography, and brand assets.',
-    images: ['/og-brand-guide.svg'],
+    images: ['/og-brand-guide.png'],
   },
   robots: {
     index: true,
