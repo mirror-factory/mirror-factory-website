@@ -790,20 +790,7 @@ export default function MirrorFactoryApp() {
       {/* Main Content Area */}
       <main className="pt-20 min-h-screen relative">
         <div className="fixed inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 divide-x divide-zinc-800/30 z-0">
-          {Array(12).fill(0).map((_, i) => {
-            // Apply frosted glass effect to specific panels with different delays
-            const frostPanels = [2, 5, 7, 10]; // Panel indices to animate
-            const isFrostPanel = frostPanels.includes(i);
-            const animationDelay = frostPanels.indexOf(i) * 1.5; // Stagger the animations
-
-            return (
-              <div
-                key={i}
-                className={`h-full hidden md:block ${isFrostPanel ? 'animate-frost-glass' : ''}`}
-                style={isFrostPanel ? { animationDelay: `${animationDelay}s` } : {}}
-              />
-            );
-          })}
+          {Array(12).fill(0).map((_, i) => <div key={i} className="h-full hidden md:block" />)}
         </div>
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-12 max-w-[90rem] mx-auto w-full border-x border-zinc-800/30 relative z-10 bg-transparent">
@@ -815,6 +802,22 @@ export default function MirrorFactoryApp() {
             <>
               {/* HERO */}
               <div className="md:col-span-12 border-b border-zinc-800/50 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center min-h-[85vh] relative overflow-hidden">
+                {/* Frosted glass grid overlay - Hero only */}
+                <div className="absolute inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 divide-x divide-transparent">
+                  {Array(12).fill(0).map((_, i) => {
+                    const frostPanels = [2, 5, 7, 10];
+                    const isFrostPanel = frostPanels.includes(i);
+                    const animationDelay = frostPanels.indexOf(i) * 1.5;
+                    return (
+                      <div
+                        key={i}
+                        className={`h-full hidden md:block ${isFrostPanel ? 'animate-frost-glass' : ''}`}
+                        style={isFrostPanel ? { animationDelay: `${animationDelay}s` } : {}}
+                      />
+                    );
+                  })}
+                </div>
+
                 {/* Subtle blurred mint and orange background gradients */}
                 <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/8 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
                 <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-[#EA580C]/6 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
@@ -832,7 +835,7 @@ export default function MirrorFactoryApp() {
                     Reflection.
                   </h1>
 
-                  <div className="border-l-4 border-l-[#3EB489]/60 pl-4 sm:pl-6 md:pl-8 mb-12 sm:mb-16 md:mb-20 py-2 animate-slide-up delay-600 mx-auto max-w-3xl text-left">
+                  <div className="mb-12 sm:mb-16 md:mb-20 py-2 animate-slide-up delay-600 mx-auto max-w-3xl text-center">
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif text-zinc-400 leading-relaxed font-extralight">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
