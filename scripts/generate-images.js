@@ -41,7 +41,7 @@ async function generateImages() {
     .blur(3) // Add blur
     .toBuffer();
 
-  // Create stacked logo overlay SVG (tall-subtitle variant)
+  // Create stacked logo overlay SVG - using exact proportions from tall-subtitle variant
   const logoOverlay = `
     <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -54,26 +54,26 @@ async function generateImages() {
         </filter>
       </defs>
 
-      <!-- Centered Stacked Logo -->
-      <g transform="translate(500, 165)">
-        <!-- Icon in mint/green -->
-        <g transform="translate(100, 0) scale(1.6)">
+      <!-- Centered Stacked Logo - scaled up 2.5x from original (200x250) -->
+      <g transform="translate(350, 80) scale(2.5)">
+        <!-- Icon (exact same as BrandLogo component) -->
+        <g transform="translate(50, 0)">
           <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#3EB489" filter="url(#glow)"/>
           <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#3EB489" filter="url(#glow)"/>
         </g>
 
-        <!-- MIRROR text -->
-        <text x="100" y="210" font-family="Inter, sans-serif" font-size="52" font-weight="bold" letter-spacing="-2" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
+        <!-- MIRROR text (exact same as tall-subtitle variant) -->
+        <text x="100" y="135" font-family="Inter, sans-serif" font-size="38" font-weight="bold" letter-spacing="-1" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
           MIRROR
         </text>
 
-        <!-- FACTORY text -->
-        <text x="100" y="270" font-family="Inter, sans-serif" font-size="52" font-weight="bold" letter-spacing="-2" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
+        <!-- FACTORY text (exact same as tall-subtitle variant) -->
+        <text x="100" y="170" font-family="Inter, sans-serif" font-size="38" font-weight="bold" letter-spacing="-1" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
           FACTORY
         </text>
 
-        <!-- Subtitle -->
-        <text x="100" y="310" font-family="serif" font-size="13" letter-spacing="1.5" text-anchor="middle" fill="#a1a1aa">
+        <!-- Subtitle (exact same as tall-subtitle variant) -->
+        <text x="100" y="200" font-family="Playfair Display, serif" font-size="14" letter-spacing="0.5" text-anchor="middle" fill="#a1a1aa">
           Human Factors AI Research
         </text>
       </g>
