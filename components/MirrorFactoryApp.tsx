@@ -814,22 +814,14 @@ export default function MirrorFactoryApp() {
             // =========================================================
             <>
               {/* HERO */}
-              <div className="md:col-span-3 order-2 md:order-none border-b border-r-0 md:border-r border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
-                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
-                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-400 animate-slide-up delay-300">
-                   &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
-                 </p>
-                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
-              </div>
-
-              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:pl-4 md:pr-12 lg:pl-6 lg:pr-16 xl:pl-8 xl:pr-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-12 border-b border-zinc-800/50 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center min-h-[85vh] relative overflow-hidden">
                 {/* Subtle blurred mint and orange background gradients */}
                 <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/8 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
                 <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-[#EA580C]/6 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
                 <div className="absolute bottom-1/4 left-1/3 w-[450px] h-[450px] bg-gradient-to-tr from-[#3EB489]/5 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
 
-                <div className="relative z-10 w-full">
-                  <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
+                <div className="relative z-10 w-full max-w-5xl text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
                     <span className="w-2 h-2 rounded-full bg-[#EA580C] animate-pulse"/>
                     <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-300">Human Factors AI Research</span>
                   </div>
@@ -840,10 +832,19 @@ export default function MirrorFactoryApp() {
                     Reflection.
                   </h1>
 
-                  <div className="border-l-4 border-l-[#3EB489]/60 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif text-zinc-400 leading-relaxed font-extralight max-w-2xl text-justify">
+                  <div className="border-l-4 border-l-[#3EB489]/60 pl-4 sm:pl-6 md:pl-8 mb-12 sm:mb-16 md:mb-20 py-2 animate-slide-up delay-600 mx-auto max-w-3xl text-left">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif text-zinc-400 leading-relaxed font-extralight">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
+                  </div>
+
+                  {/* Quote - Centered and Wide */}
+                  <div className="max-w-4xl mx-auto mt-8 md:mt-12 animate-slide-up delay-800">
+                    <div className="w-12 h-[2px] mint-bg mb-6 mx-auto" />
+                    <p className="text-sm sm:text-base md:text-lg opacity-70 mb-4 font-serif italic leading-relaxed text-zinc-400">
+                      &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
+                    </p>
+                    <p className="text-xs sm:text-sm font-mono uppercase tracking-widest opacity-50 text-zinc-400">— Ray Bradbury, Fahrenheit 451</p>
                   </div>
                 </div>
               </div>
