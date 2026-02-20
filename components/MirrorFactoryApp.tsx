@@ -1413,6 +1413,47 @@ export default function MirrorFactoryApp() {
                 </div>
               </div>
 
+              {/* SECTION: OG IMAGES / SOCIAL MEDIA ASSETS */}
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-800/50">
+                <div className="max-w-6xl mx-auto">
+                  <div className="flex items-center gap-3 mb-10">
+                    <Component size={20} className="mint-text" />
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-50">Social Media Assets</h2>
+                  </div>
+                  <p className="text-zinc-400 mb-12 max-w-3xl">
+                    Open Graph images for social media sharing. These appear when Mirror Factory links are shared on platforms like Twitter, LinkedIn, and Facebook.
+                  </p>
+
+                  <div className="grid grid-cols-1 gap-8">
+                    {/* Main OG Image */}
+                    <div className="border border-zinc-800 rounded-lg overflow-hidden">
+                      <div className="bg-zinc-900/30 p-6">
+                        <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Homepage OG Image</h3>
+                        <p className="text-sm text-zinc-500 mb-4">1200 × 630px • Main website social preview</p>
+                        <img
+                          src="/og-image.png"
+                          alt="Mirror Factory Homepage OG Image"
+                          className="w-full rounded border border-zinc-800"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Brand Guide OG Image */}
+                    <div className="border border-zinc-800 rounded-lg overflow-hidden">
+                      <div className="bg-zinc-900/30 p-6">
+                        <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Brand Guide OG Image</h3>
+                        <p className="text-sm text-zinc-500 mb-4">1200 × 630px • Brand guide social preview</p>
+                        <img
+                          src="/og-brand-guide.png"
+                          alt="Mirror Factory Brand Guide OG Image"
+                          className="w-full rounded border border-zinc-800"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* FOOTER */}
               <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col items-center gap-8 bg-white dark:bg-zinc-900/20 text-center border-t border-zinc-800/30">
                 <BrandLogo className="w-16 h-16" />
