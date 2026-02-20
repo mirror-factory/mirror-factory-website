@@ -804,14 +804,6 @@ export default function MirrorFactoryApp() {
               </div>
 
               <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:pl-4 md:pr-12 lg:pl-6 lg:pr-16 xl:pl-8 xl:pr-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
-                {/* Hero Background - Gradient Glows (Green + Copper/Orange) - Animated In */}
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
-                <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#EA580C]/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.3s' }} />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.4s' }} />
-                <div className="absolute bottom-1/3 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-[#D2691E]/8 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.6s' }} />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-t from-[#FF8C00]/7 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '1s' }} />
-
                 <div className="relative z-10 w-full">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
                     <span className="w-2 h-2 rounded-full bg-[#EA580C] animate-pulse"/>
