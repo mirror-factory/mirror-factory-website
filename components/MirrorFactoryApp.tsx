@@ -737,7 +737,8 @@ export default function MirrorFactoryApp() {
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-4 md:py-5 backdrop-blur-md bg-white/95 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/95 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
+        <div className="max-w-[90rem] mx-auto w-full flex justify-between items-center px-6 md:px-8 py-4 md:py-5 border-x border-zinc-200 dark:border-zinc-800/30">
         <button
           onClick={() => setCurrentPage('home')}
           className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:opacity-80 transition-opacity"
@@ -752,14 +753,14 @@ export default function MirrorFactoryApp() {
         <div className="hidden md:flex items-center gap-6 text-sm font-sans font-medium opacity-60 ml-8 mr-auto">
           {currentPage === 'home' ? (
             <>
-              <a href="#mandate" className="hover:text-[#3EB489] transition-colors">Who We Are</a>
-              <a href="#methodology" className="hover:text-[#3EB489] transition-colors">Methodology</a>
-              <a href="#initiatives" className="hover:text-[#3EB489] transition-colors">Initiatives</a>
+              <a href="#mandate" className="hover:text-[#EA580C] transition-colors">Who We Are</a>
+              <a href="#methodology" className="hover:text-[#EA580C] transition-colors">Methodology</a>
+              <a href="#initiatives" className="hover:text-[#EA580C] transition-colors">Initiatives</a>
             </>
           ) : (
             <button
               onClick={() => setCurrentPage('home')}
-              className="transition-colors text-[#3EB489] opacity-100"
+              className="transition-colors text-[#EA580C] opacity-100"
             >
               ← Back to Site
             </button>
@@ -769,14 +770,15 @@ export default function MirrorFactoryApp() {
         <div className="flex items-center gap-4 md:gap-6">
           <a
             href="mailto:hello@mirrorfactory.com"
-            className="text-xs font-mono tracking-wider opacity-70 hover:opacity-100 hover:text-[#3EB489] transition-all hidden sm:flex items-center gap-2 text-zinc-900 dark:text-zinc-300"
+            className="text-xs font-mono tracking-wider opacity-70 hover:opacity-100 hover:text-[#EA580C] transition-all hidden sm:flex items-center gap-2 text-zinc-900 dark:text-zinc-300"
           >
             <Mail size={14} />
             <span>hello@mirrorfactory.com</span>
           </a>
-          <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-[#3EB489] dark:hover:border-[#3EB489] transition-all group">
-            {isDarkMode ? <Sun size={16} className="group-hover:text-[#3EB489] transition-colors" /> : <Moon size={16} className="group-hover:text-[#3EB489] transition-colors" />}
+          <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-[#EA580C] dark:hover:border-[#EA580C] transition-all group">
+            {isDarkMode ? <Sun size={16} className="group-hover:text-[#EA580C] transition-colors" /> : <Moon size={16} className="group-hover:text-[#EA580C] transition-colors" />}
           </button>
+        </div>
         </div>
       </nav>
 
@@ -795,7 +797,7 @@ export default function MirrorFactoryApp() {
             <>
               {/* HERO */}
               <div className="md:col-span-3 order-2 md:order-none border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
-                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
+                 <div className="w-12 h-[2px] bg-gradient-to-r from-[#EA580C] to-[#3EB489] mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
                  <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400 animate-slide-up delay-300">
                    &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
                  </p>
@@ -809,7 +811,7 @@ export default function MirrorFactoryApp() {
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.4s' }} />
                 <div className="absolute bottom-1/3 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-[#D2691E]/5 dark:from-[#D2691E]/8 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.5s' }} />
                 <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.6s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/5 dark:from-[#3EB489]/8 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/4 dark:from-[#3EB489]/6 to-transparent rounded-full blur-[100px] opacity-60 dark:opacity-80 animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-t from-[#FF8C00]/4 dark:from-[#FF8C00]/7 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '1s' }} />
 
                 <div className="max-w-4xl relative z-10 w-full md:ml-0">
@@ -824,7 +826,7 @@ export default function MirrorFactoryApp() {
                     Reflection.
                   </h1>
 
-                  <div className="border-l border-[#3EB489]/50 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
+                  <div className="border-l-4 border-l-[#EA580C]/60 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-600 dark:text-zinc-400 leading-snug font-extralight max-w-2xl">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
@@ -988,10 +990,10 @@ export default function MirrorFactoryApp() {
 
                 <div className="flex flex-col items-start md:items-end gap-6">
                   <div className="flex flex-col items-start md:items-end gap-4 opacity-80">
-                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact — hello@mirrorfactory.com</a>
+                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact — hello@mirrorfactory.com</a>
                     <button
                       onClick={() => setCurrentPage('brand-guide')}
-                      className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"
+                      className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"
                     >
                       <Palette size={18} /> Brand Guide
                     </button>
