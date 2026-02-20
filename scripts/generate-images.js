@@ -30,22 +30,23 @@ async function generateImages() {
     .png()
     .toFile(path.join(publicDir, 'apple-touch-icon.png'));
 
-  // 2. Create OG image for brand guide using orlando-image.jpg
-  console.log('Creating brand guide OG image from orlando photo...');
+  // 2. Create OG images using orlando-image.jpg
+  console.log('Creating OG images from orlando photo...');
 
-  // Process the base image: resize, grayscale, darken
+  // Process the base image: resize, grayscale, darken, and blur
   const processedBase = await sharp(orlandoImage)
     .resize(1200, 630, { fit: 'cover', position: 'center' })
     .grayscale()
     .modulate({ brightness: 0.4 }) // Darken to 40%
+    .blur(3) // Add blur
     .toBuffer();
 
-  // Create logo overlay SVG
+  // Create stacked logo overlay SVG (tall-subtitle variant)
   const logoOverlay = `
     <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
@@ -53,23 +54,33 @@ async function generateImages() {
         </filter>
       </defs>
 
-      <!-- Mirror Factory Chevron Logo -->
-      <g transform="translate(490, 180) scale(1.8)">
-        <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#ffffff" filter="url(#glow)"/>
-        <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#ffffff" filter="url(#glow)"/>
-      </g>
+      <!-- Centered Stacked Logo -->
+      <g transform="translate(500, 165)">
+        <!-- Icon in mint/green -->
+        <g transform="translate(100, 0) scale(1.6)">
+          <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#3EB489" filter="url(#glow)"/>
+          <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#3EB489" filter="url(#glow)"/>
+        </g>
 
-      <!-- Text -->
-      <text x="600" y="380" font-family="serif" font-size="68" font-weight="600" fill="#ffffff" text-anchor="middle" filter="url(#glow)">
-        Mirror Factory
-      </text>
-      <text x="600" y="425" font-family="sans-serif" font-size="18" letter-spacing="3" fill="#a1a1aa" text-anchor="middle">
-        BRAND GUIDE
-      </text>
+        <!-- MIRROR text -->
+        <text x="100" y="210" font-family="Inter, sans-serif" font-size="52" font-weight="bold" letter-spacing="-2" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
+          MIRROR
+        </text>
+
+        <!-- FACTORY text -->
+        <text x="100" y="270" font-family="Inter, sans-serif" font-size="52" font-weight="bold" letter-spacing="-2" text-anchor="middle" fill="#ffffff" filter="url(#glow)">
+          FACTORY
+        </text>
+
+        <!-- Subtitle -->
+        <text x="100" y="310" font-family="serif" font-size="13" letter-spacing="1.5" text-anchor="middle" fill="#a1a1aa">
+          Human Factors AI Research
+        </text>
+      </g>
     </svg>
   `;
 
-  // Composite the logo on top of the darkened photo
+  // Create both OG images with same design
   await sharp(processedBase)
     .composite([{
       input: Buffer.from(logoOverlay),
@@ -79,61 +90,10 @@ async function generateImages() {
     .png()
     .toFile(path.join(publicDir, 'og-brand-guide.png'));
 
-  // 3. Create main OG image (similar style)
-  console.log('Creating main OG image...');
-
-  const processedMain = await sharp(orlandoImage)
-    .resize(1200, 630, { fit: 'cover', position: 'center' })
-    .grayscale()
-    .modulate({ brightness: 0.35 })
-    .toBuffer();
-
-  const mainOverlay = `
-    <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="glow2">
-          <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <linearGradient id="mintGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#3EB489;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#2d8a6b;stop-opacity:1" />
-        </linearGradient>
-      </defs>
-
-      <!-- Mirror Factory Chevron Logo -->
-      <g transform="translate(90, 150) scale(1.4)">
-        <path d="M 3 20 L 33 50 L 3 80 L 18 80 L 48 50 L 18 20 Z" fill="#ffffff" filter="url(#glow2)"/>
-        <path d="M 97 20 L 67 50 L 97 80 L 82 80 L 52 50 L 82 20 Z" fill="#ffffff" filter="url(#glow2)"/>
-      </g>
-
-      <!-- Main Text -->
-      <text x="200" y="330" font-family="serif" font-size="56" font-weight="500" fill="#ffffff" text-anchor="middle" filter="url(#glow2)">
-        Mirror Factory
-      </text>
-      <text x="200" y="370" font-family="sans-serif" font-size="16" letter-spacing="3" fill="#a1a1aa" text-anchor="middle">
-        HUMAN FACTORS AI RESEARCH
-      </text>
-
-      <!-- Tagline -->
-      <text x="750" y="280" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
-        <tspan x="750" dy="0">Intelligence</tspan>
-      </text>
-      <text x="750" y="340" font-family="serif" font-size="48" font-weight="500" fill="url(#mintGradient)" text-anchor="middle" font-style="italic" filter="url(#glow2)">
-        Requires
-      </text>
-      <text x="750" y="400" font-family="serif" font-size="40" font-weight="300" fill="#ffffff" text-anchor="middle">
-        Reflection.
-      </text>
-    </svg>
-  `;
-
-  await sharp(processedMain)
+  // Use same design for main OG image
+  await sharp(processedBase)
     .composite([{
-      input: Buffer.from(mainOverlay),
+      input: Buffer.from(logoOverlay),
       top: 0,
       left: 0
     }])
