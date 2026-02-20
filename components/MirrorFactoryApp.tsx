@@ -1098,13 +1098,6 @@ export default function MirrorFactoryApp() {
               </div>
 
               <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-800/50 relative overflow-hidden">
-                {/* Reflection Background Variation 3: Mirror Symmetry Effect */}
-                <div className="absolute top-1/4 left-0 w-64 h-full bg-gradient-to-r from-[#3EB489]/10 to-transparent animate-symmetric-pulse pointer-events-none" />
-                <div className="absolute top-1/4 right-0 w-64 h-full bg-gradient-to-l from-teal-500/10 to-transparent animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '4s' }} />
-                <div className="absolute top-1/3 left-1/3 w-32 h-32 border-2 border-[#3EB489]/20 rounded-lg animate-mirror-flip pointer-events-none" />
-                <div className="absolute bottom-1/3 right-1/4 w-40 h-40 border border-teal-500/20 rounded-full animate-mirror-flip pointer-events-none" style={{ animationDelay: '5s', animationDuration: '18s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/5 to-transparent rounded-full blur-3xl animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
-
                 <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10 text-zinc-50">Active Initiatives</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -1138,9 +1131,6 @@ export default function MirrorFactoryApp() {
 
               {/* CONTACT SECTION */}
               <div className="md:col-span-12 p-8 sm:p-12 md:p-20 lg:p-24 flex flex-col items-center justify-center border-t border-zinc-800/30 relative overflow-hidden">
-                {/* Subtle background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3EB489]/5 to-transparent pointer-events-none" />
-
                 <div className="relative z-10 text-center max-w-2xl">
                   <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-zinc-50">Get In Touch</h2>
                   <p className="text-zinc-400 font-light mb-8 text-lg leading-relaxed">
