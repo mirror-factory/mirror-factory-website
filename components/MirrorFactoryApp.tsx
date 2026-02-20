@@ -794,34 +794,34 @@ export default function MirrorFactoryApp() {
             // =========================================================
             <>
               {/* HERO */}
-              <div className="md:col-span-3 order-2 md:order-1 border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
-                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up" />
-                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400 animate-slide-up delay-200">
+              <div className="md:col-span-3 order-2 md:order-none border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
+                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
+                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400 animate-slide-up delay-300">
                    &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
                  </p>
-                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400 animate-slide-up delay-300">— Ray Bradbury, Fahrenheit 451</p>
+                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
-              <div className="md:col-span-9 order-1 md:order-2 p-6 sm:p-8 md:p-16 lg:p-20 xl:p-24 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
-                {/* Hero Background - Gradient Glows Only */}
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/8 dark:from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none" />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift" style={{ animationDelay: '2s' }} />
-                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none" style={{ animationDelay: '5s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/5 dark:from-[#3EB489]/8 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none" style={{ animationDelay: '3s' }} />
+              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+                {/* Hero Background - Gradient Glows Only - Animated In */}
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/8 dark:from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.4s' }} />
+                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.6s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/5 dark:from-[#3EB489]/8 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
 
-                <div className="max-w-4xl relative z-10 w-full">
-                  <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up">
+                <div className="max-w-4xl relative z-10 w-full md:ml-0">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
                     <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
                     <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-300">Human Factors AI Research</span>
                   </div>
 
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-medium leading-[1.05] sm:leading-[1] md:leading-[0.95] mb-6 sm:mb-8 md:mb-10 lg:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50 animate-slide-up delay-200">
+                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-medium leading-[1.05] sm:leading-[1] md:leading-[0.95] mb-6 sm:mb-8 md:mb-10 lg:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50 animate-slide-up delay-400">
                     Intelligence <br className="hidden sm:block" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3EB489] to-teal-700 italic pr-2 sm:pr-4 animate-glow-pulse">Requires</span> <br className="hidden sm:block" />
                     Reflection.
                   </h1>
 
-                  <div className="border-l border-[#3EB489]/50 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-400">
+                  <div className="border-l border-[#3EB489]/50 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-600 dark:text-zinc-400 leading-snug font-extralight max-w-2xl">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
