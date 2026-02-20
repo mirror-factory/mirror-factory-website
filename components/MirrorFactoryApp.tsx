@@ -1016,8 +1016,29 @@ export default function MirrorFactoryApp() {
                 </div>
               </div>
 
+              {/* CONTACT SECTION */}
+              <div className="md:col-span-12 p-8 sm:p-12 md:p-20 lg:p-24 flex flex-col items-center justify-center border-t border-zinc-800/30 relative overflow-hidden">
+                {/* Subtle background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3EB489]/5 to-transparent pointer-events-none" />
+
+                <div className="relative z-10 text-center max-w-2xl">
+                  <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-zinc-50">Get In Touch</h2>
+                  <p className="text-zinc-400 font-light mb-8 text-lg leading-relaxed">
+                    Interested in our research or exploring collaboration? We'd love to hear from you.
+                  </p>
+                  <a
+                    href="mailto:hello@mirrorfactory.com"
+                    className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#3EB489] text-[#3EB489] hover:bg-[#3EB489] hover:text-black transition-all duration-300 font-mono text-sm uppercase tracking-widest group"
+                  >
+                    <Mail size={20} />
+                    hello@mirrorfactory.com
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-white dark:bg-zinc-900/20 border-t border-zinc-800/30">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-zinc-900/20 border-t border-zinc-800/30">
                 <div className="flex flex-col items-start gap-4">
                   <BrandLogo className="w-16 h-16" />
                   <h2 className="font-sans text-4xl font-bold tracking-tighter leading-[0.9] text-zinc-950 dark:text-zinc-300 uppercase">
