@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#09090b"/>
+
+  <!-- Gradient overlays -->
+  <defs>
+    <radialGradient id="mintGlow" cx="30%" cy="40%">
+      <stop offset="0%" style="stop-color:#3EB489;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#3EB489;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orangeGlow" cx="70%" cy="60%">
+      <stop offset="0%" style="stop-color:#EA580C;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#EA580C;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="360" cy="250" rx="400" ry="350" fill="url(#mintGlow)"/>
+  <ellipse cx="840" cy="380" rx="350" ry="300" fill="url(#orangeGlow)"/>
+
+  <!-- Grid lines -->
+  <g opacity="0.1">
+    <line x1="100" y1="0" x2="100" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="500" y1="0" x2="500" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="#3EB489" stroke-width="1"/>
+    <line x1="1100" y1="0" x2="1100" y2="630" stroke="#3EB489" stroke-width="1"/>
+  </g>
+
+  <!-- Logo Icon -->
+  <g transform="translate(150, 140)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#3EB489" stroke-width="2" opacity="0.3"/>
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#3EB489" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#3EB489" stroke-width="3" opacity="0.8"/>
+    <circle cx="0" cy="0" r="5" fill="#3EB489"/>
+    <line x1="0" y1="-53" x2="0" y2="53" stroke="#3EB489" stroke-width="2" opacity="0.6"/>
+    <line x1="-28" y1="-13" x2="28" y2="-13" stroke="#3EB489" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-28" y1="0" x2="28" y2="0" stroke="#3EB489" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-28" y1="13" x2="28" y2="13" stroke="#3EB489" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Main Text -->
+  <text x="150" y="330" font-family="'Playfair Display', serif" font-size="72" font-weight="500" fill="#fafafa" text-anchor="middle">
+    Mirror Factory
+  </text>
+
+  <!-- Subtitle -->
+  <text x="150" y="370" font-family="'Inter', sans-serif" font-size="20" fill="#a1a1aa" text-anchor="middle">
+    HUMAN FACTORS AI RESEARCH
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="380" font-family="'Playfair Display', serif" font-size="42" font-weight="300" fill="#d4d4d8" text-anchor="middle" font-style="italic">
+    <tspan x="600" dy="0">Intelligence</tspan>
+    <tspan x="600" dy="56" fill="#3EB489">Requires</tspan>
+    <tspan x="600" dy="56">Reflection.</tspan>
+  </text>
+</svg>
