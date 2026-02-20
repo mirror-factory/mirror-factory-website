@@ -803,7 +803,7 @@ export default function MirrorFactoryApp() {
                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
-              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:pl-8 md:pr-12 lg:pl-12 lg:pr-16 xl:pl-16 xl:pr-20 flex flex-col justify-end pb-16 md:pb-24 lg:pb-32 min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Hero Background - Gradient Glows (Green + Copper/Orange) - Animated In */}
                 <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
                 <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#EA580C]/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.3s' }} />
@@ -813,7 +813,7 @@ export default function MirrorFactoryApp() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#3EB489]/2 to-transparent rounded-full blur-[200px] opacity-20 animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-t from-[#FF8C00]/7 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '1s' }} />
 
-                <div className="max-w-4xl relative z-10 w-full md:ml-0">
+                <div className="relative z-10 w-full">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
                     <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
                     <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-300">Human Factors AI Research</span>
