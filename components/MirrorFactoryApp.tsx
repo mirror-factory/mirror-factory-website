@@ -126,7 +126,7 @@ const GLOBAL_CSS_ANIMATIONS = `
 
   @keyframes recipient-glow {
     0%, 45% { opacity: 0.3; filter: none; transform: scale(1); }
-    50%, 60% { opacity: 1; filter: drop-shadow(0 0 8px rgba(56,189,248,0.8)); transform: scale(1.3); }
+    50%, 60% { opacity: 1; filter: drop-shadow(0 0 8px rgba(37,99,235,0.8)); transform: scale(1.3); }
     100% { opacity: 0.3; filter: none; transform: scale(1); }
   }
   .animate-recipient-glow { animation: recipient-glow 4s infinite; transform-origin: 230px 75px; }
@@ -382,8 +382,8 @@ function SymmetryMirrorSVG({ isDarkMode }: SVGComponentProps) {
       <svg viewBox="0 0 400 300" className="w-full max-w-md h-auto overflow-visible" style={{ filter: isDarkMode ? 'drop-shadow(0px 0px 20px rgba(255,255,255,0.02))' : 'drop-shadow(0px 0px 20px rgba(0,0,0,0.05))' }}>
         <line x1="200" y1="20" x2="200" y2="280" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-pulse" strokeDasharray="4 4" />
         <g style={{ transformOrigin: '110px 260px' }} className="animate-perfect-symmetry">
-          <path d="M 50 50 C 100 50, 120 90, 120 110 L 145 135 L 130 145 C 135 150, 135 155, 130 160 C 135 170, 125 185, 110 195 C 90 210, 70 230, 40 260" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-800 dark:text-zinc-200" />
-          <circle cx="100" cy="100" r="4" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-80" />
+          <path d="M 50 50 C 100 50, 120 90, 120 110 L 145 135 L 130 145 C 135 150, 135 155, 130 160 C 135 170, 125 185, 110 195 C 90 210, 70 230, 40 260" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-950 dark:text-zinc-200" />
+          <circle cx="100" cy="100" r="4" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-80" />
         </g>
         <g style={{ transformOrigin: '200px 150px', transform: 'scaleX(-1)' }}>
           <g style={{ transformOrigin: '110px 260px' }} className="animate-perfect-symmetry">
@@ -401,9 +401,9 @@ function TheSieveSVG({ isDarkMode }: SVGComponentProps) {
     <div className="w-full flex justify-center mb-10 relative h-48">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
         <g className="animate-chaotic-flow">
-          <path d="M 20 20 Q 80 50 100 100 M 50 10 Q 90 60 100 100 M 180 20 Q 120 50 100 100 M 150 10 Q 110 60 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-800 dark:text-zinc-200" strokeDasharray="4 6" />
+          <path d="M 20 20 Q 80 50 100 100 M 50 10 Q 90 60 100 100 M 180 20 Q 120 50 100 100 M 150 10 Q 110 60 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-950 dark:text-zinc-200" strokeDasharray="4 6" />
         </g>
-        <path d="M 40 80 C 70 80 80 120 90 140 C 95 150 105 150 110 140 C 120 120 130 80 160 80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-800 dark:text-zinc-200" />
+        <path d="M 40 80 C 70 80 80 120 90 140 C 95 150 105 150 110 140 C 120 120 130 80 160 80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200" />
         <g>
           <circle cx="100" cy="145" r="3" fill="#3EB489" className="animate-sieve-drop drop-shadow-[0_0_5px_rgba(62,180,137,0.8)]" />
           <circle cx="100" cy="145" r="3" fill="#3EB489" className="animate-sieve-drop drop-shadow-[0_0_5px_rgba(62,180,137,0.8)]" style={{ animationDelay: '1.5s' }} />
@@ -420,7 +420,7 @@ function ThoughtWeaverSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-10 relative h-48">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="animate-human-chaos text-zinc-800 dark:text-zinc-200 opacity-50" strokeDasharray="8 6" />
+        <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="animate-human-chaos text-zinc-950 dark:text-zinc-200 opacity-50" strokeDasharray="8 6" />
         <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="#3EB489" strokeWidth="2" strokeLinecap="round" className="animate-draw-weave" strokeDasharray="300" strokeDashoffset="300" />
         <circle cx="75" cy="100" r="4.5" fill="#3EB489" className="animate-pulse opacity-80" />
         <circle cx="155" cy="100" r="4.5" fill="#3EB489" className="animate-pulse opacity-80" style={{ animationDelay: '1s' }} />
@@ -437,9 +437,9 @@ function EnvironmentalSyncSVG({ isDarkMode }: SVGComponentProps) {
         <circle cx="100" cy="100" r="40" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-20 animate-ping-slow" />
         <circle cx="100" cy="100" r="70" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-10 animate-ping-slow" style={{ animationDelay: '1s' }} />
         <path d="M 100 100 L 140 60 M 100 100 L 50 120 M 100 100 L 120 160" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="4 4" className="animate-scan-lines opacity-50" />
-        <rect x="135" y="50" width="10" height="10" className="text-zinc-800 dark:text-zinc-200 opacity-50" transform="rotate(45 140 55)" />
-        <circle cx="45" cy="125" r="6" className="text-zinc-800 dark:text-zinc-200 opacity-50" />
-        <polygon points="120,165 115,175 125,175" className="text-zinc-800 dark:text-zinc-200 opacity-50" />
+        <rect x="135" y="50" width="10" height="10" className="text-zinc-950 dark:text-zinc-200 opacity-50" transform="rotate(45 140 55)" />
+        <circle cx="45" cy="125" r="6" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
+        <polygon points="120,165 115,175 125,175" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
       </svg>
     </div>
   )
@@ -449,9 +449,9 @@ function ContextualLayersSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible group animate-master-glow">
-        <ellipse cx="100" cy="140" rx="60" ry="20" fill="none" strokeWidth="1.5" className="animate-layer-seq-1 text-zinc-800 dark:text-zinc-200" />
-        <ellipse cx="100" cy="110" rx="75" ry="25" fill="none" strokeWidth="1.5" className="animate-layer-seq-2 text-zinc-800 dark:text-zinc-200" />
-        <ellipse cx="100" cy="80" rx="90" ry="30" fill="none" strokeWidth="2" className="animate-layer-seq-3 text-zinc-800 dark:text-zinc-200" />
+        <ellipse cx="100" cy="140" rx="60" ry="20" fill="none" strokeWidth="1.5" className="animate-layer-seq-1 text-zinc-950 dark:text-zinc-200" />
+        <ellipse cx="100" cy="110" rx="75" ry="25" fill="none" strokeWidth="1.5" className="animate-layer-seq-2 text-zinc-950 dark:text-zinc-200" />
+        <ellipse cx="100" cy="80" rx="90" ry="30" fill="none" strokeWidth="2" className="animate-layer-seq-3 text-zinc-950 dark:text-zinc-200" />
         <path d="M 100 40 L 100 160" fill="none" stroke="#3EB489" strokeWidth="2" strokeDasharray="5 5" className="animate-pulse opacity-80" />
         <circle cx="100" cy="80" r="4" fill="#3EB489" className="animate-pulse" />
         <circle cx="100" cy="110" r="3" fill="#3EB489" />
@@ -465,15 +465,15 @@ function SharedContextSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 300 150" className="w-full h-full overflow-visible">
-        <path d="M 50 30 C 80 30, 90 60, 90 75 C 90 90, 80 120, 50 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-800 dark:text-zinc-200 opacity-60" />
+        <path d="M 50 30 C 80 30, 90 60, 90 75 C 90 90, 80 120, 50 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-60" />
         <circle cx="70" cy="75" r="4" fill="#3EB489" className="opacity-80 drop-shadow-[0_0_4px_rgba(62,180,137,0.8)]" />
-        <path d="M 250 30 C 220 30, 210 60, 210 75 C 210 90, 220 120, 250 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-800 dark:text-zinc-200 opacity-60" />
-        <circle cx="230" cy="75" r="4" fill="#38BDF8" className="animate-recipient-glow" />
+        <path d="M 250 30 C 220 30, 210 60, 210 75 C 210 90, 220 120, 250 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-60" />
+        <circle cx="230" cy="75" r="4" fill="#2563EB" className="animate-recipient-glow" />
         <path d="M 95 75 C 130 50, 170 100, 205 75" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="6 6" className="animate-scan-lines opacity-50" />
         <circle cx="0" cy="0" r="4" fill="#3EB489" className="animate-travel-packet-1 drop-shadow-[0_0_5px_rgba(62,180,137,0.8)]">
           <animateMotion dur="4s" repeatCount="indefinite" path="M 95 75 C 130 50, 170 100, 205 75" />
         </circle>
-        <circle cx="0" cy="0" r="3" fill="#38BDF8" className="animate-travel-packet-2 drop-shadow-[0_0_5px_rgba(56,189,248,0.8)]">
+        <circle cx="0" cy="0" r="3" fill="#2563EB" className="animate-travel-packet-2 drop-shadow-[0_0_5px_rgba(37,99,235,0.8)]">
           <animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M 95 75 C 130 50, 170 100, 205 75" />
         </circle>
       </svg>
@@ -485,7 +485,7 @@ function ContextBufferSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <path d="M 10 50 L 70 80 M 10 100 L 70 100 M 10 150 L 70 120" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-800 dark:text-zinc-200 animate-pulse" strokeDasharray="4 4"/>
+        <path d="M 10 50 L 70 80 M 10 100 L 70 100 M 10 150 L 70 120" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-950 dark:text-zinc-200 animate-pulse" strokeDasharray="4 4"/>
         <path d="M 20 70 L 60 90 M 20 130 L 60 110" stroke="#3EB489" strokeWidth="1.5" className="opacity-50 animate-fast-dash" strokeDasharray="4 4"/>
         <path d="M 90 40 Q 120 100 90 160" fill="none" stroke="#3EB489" strokeWidth="4" strokeLinecap="round" className="drop-shadow-[0_0_8px_rgba(62,180,137,0.6)] animate-shield-pulse" />
         <path d="M 115 100 L 190 100" fill="none" stroke="#3EB489" strokeWidth="2.5" strokeLinecap="round" className="animate-smooth-flow" strokeDasharray="100" strokeDashoffset="100" />
@@ -504,8 +504,8 @@ function HumanAgencySVG({ isDarkMode }: SVGComponentProps) {
         <path d="M 100 150 Q 70 100 40 60" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" />
         <path d="M 100 150 Q 130 110 160 70" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '0.5s'}}/>
         <path d="M 100 150 L 100 40" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '1s'}}/>
-        <circle cx="100" cy="150" r="10" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 z-10 relative" />
-        <circle cx="100" cy="150" r="16" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-800 dark:text-zinc-200 opacity-20 animate-ping-slow" />
+        <circle cx="100" cy="150" r="10" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 z-10 relative" />
+        <circle cx="100" cy="150" r="16" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20 animate-ping-slow" />
       </svg>
     </div>
   )
@@ -515,7 +515,7 @@ function EmpathyEngineSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <circle cx="80" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-800 dark:text-zinc-200 opacity-50" />
+        <circle cx="80" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
         <circle cx="120" cy="100" r="40" fill="none" stroke="#3EB489" strokeWidth="2" className="opacity-50" />
         <path d="M 100 65 A 40 40 0 0 0 100 135 A 40 40 0 0 0 100 65" fill="#3EB489" className="animate-empathy-pulse mix-blend-screen" />
         <circle cx="100" cy="100" r="8" fill="currentColor" className="text-zinc-900 dark:text-zinc-50 z-10" />
@@ -528,11 +528,11 @@ function DataRefinerySVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <rect x="20" y="60" width="8" height="8" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-40 animate-block-fade" />
-        <rect x="40" y="80" width="8" height="8" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.2s'}} />
-        <rect x="20" y="100" width="8" height="8" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.4s'}} />
-        <rect x="40" y="120" width="8" height="8" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.6s'}} />
-        <rect x="20" y="140" width="8" height="8" fill="currentColor" className="text-zinc-800 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.8s'}} />
+        <rect x="20" y="60" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" />
+        <rect x="40" y="80" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.2s'}} />
+        <rect x="20" y="100" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.4s'}} />
+        <rect x="40" y="120" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.6s'}} />
+        <rect x="20" y="140" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.8s'}} />
         <circle cx="80" cy="104" r="15" fill="none" stroke="#3EB489" strokeWidth="2" className="animate-spin-slow" strokeDasharray="10 10" />
         <circle cx="80" cy="104" r="4" fill="#3EB489" />
         <path d="M 95 104 C 130 104, 140 60, 180 60" fill="none" stroke="#3EB489" strokeWidth="3" strokeLinecap="round" className="animate-insight-curve drop-shadow-[0_0_6px_rgba(62,180,137,0.6)]" strokeDasharray="120" strokeDashoffset="120" />
@@ -545,14 +545,14 @@ function TemporalSyncSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-800 dark:text-zinc-200 opacity-20" />
-        <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-800 dark:text-zinc-200 opacity-20" />
-        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-800 dark:text-zinc-200 opacity-20" />
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
+        <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
+        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
         <path d="M 100 100 L 100 20 A 80 80 0 0 1 180 100 Z" fill="#3EB489" className="opacity-10 animate-radar-sweep" />
         <circle cx="100" cy="70" r="4" fill="#3EB489" className="animate-temporal-node" />
         <circle cx="100" cy="45" r="5" fill="#3EB489" className="animate-temporal-node" style={{animationDelay: '0.5s'}} />
         <circle cx="100" cy="20" r="6" fill="#3EB489" className="animate-temporal-node" style={{animationDelay: '1s'}} />
-        <circle cx="100" cy="100" r="6" fill="currentColor" className="text-zinc-800 dark:text-zinc-200" />
+        <circle cx="100" cy="100" r="6" fill="currentColor" className="text-zinc-950 dark:text-zinc-200" />
       </svg>
     </div>
   )
@@ -562,10 +562,10 @@ function SovereignMindSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-800 dark:text-zinc-200 opacity-80" />
+        <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-950 dark:text-zinc-200 opacity-80" />
         <circle cx="100" cy="100" r="55" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-30 animate-boundary-breathe" />
-        <path d="M 85 100 C 85 80, 115 80, 115 100 C 115 120, 85 120, 85 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-800 dark:text-zinc-200 animate-pulse" />
-        <circle cx="100" cy="100" r="3" fill="currentColor" className="text-zinc-800 dark:text-zinc-200" />
+        <path d="M 85 100 C 85 80, 115 80, 115 100 C 115 120, 85 120, 85 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-950 dark:text-zinc-200 animate-pulse" />
+        <circle cx="100" cy="100" r="3" fill="currentColor" className="text-zinc-950 dark:text-zinc-200" />
         <circle cx="30" cy="100" r="4" fill="#3EB489" className="animate-system-bounce-1" />
         <circle cx="170" cy="70" r="3" fill="#3EB489" className="animate-system-bounce-2" />
         <circle cx="150" cy="160" r="5" fill="#3EB489" className="animate-system-bounce-3" />
@@ -599,13 +599,13 @@ export default function MirrorFactoryApp() {
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-4 md:py-5 backdrop-blur-md bg-white/5 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
+      <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-4 md:py-5 backdrop-blur-md bg-white/80 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
         <button
           onClick={() => setCurrentPage('home')}
           className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:opacity-80 transition-opacity"
         >
           <BrandLogo className="w-7 h-7 md:w-8 md:h-8 animate-logo-intro" />
-          <span className="font-sans font-bold text-lg md:text-xl tracking-tighter leading-none pt-1 flex gap-1 md:gap-1.5">
+          <span className="font-sans font-bold text-lg md:text-xl tracking-tighter leading-none pt-1 flex gap-1 md:gap-1.5 text-zinc-950 dark:text-zinc-50">
             <span className="animate-word-1 inline-block">Mirror</span>
             <span className="animate-word-2 inline-block">Factory</span>
           </span>
@@ -618,13 +618,14 @@ export default function MirrorFactoryApp() {
               <a href="#methodology" className="hover:text-[#3EB489] transition-colors">Methodology</a>
               <a href="#initiatives" className="hover:text-[#3EB489] transition-colors">Initiatives</a>
             </>
-          ) : null}
-          <button
-            onClick={() => setCurrentPage(currentPage === 'home' ? 'brand' : 'home')}
-            className={`transition-colors ${currentPage === 'brand' ? 'text-[#3EB489] opacity-100' : 'hover:text-[#3EB489]'}`}
-          >
-            {currentPage === 'home' ? 'Brand Guide' : '← Back to Site'}
-          </button>
+          ) : (
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="transition-colors text-[#3EB489] opacity-100"
+            >
+              ← Back to Site
+            </button>
+          )}
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
@@ -666,7 +667,7 @@ export default function MirrorFactoryApp() {
                     <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest">Human Factors AI Research</span>
                   </div>
 
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-medium leading-[0.95] mb-8 md:mb-12 tracking-tight">
+                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-medium leading-[0.95] mb-8 md:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50">
                     Intelligence <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3EB489] to-teal-700 italic pr-4">Requires</span> <br />
                     Reflection.
@@ -787,25 +788,25 @@ export default function MirrorFactoryApp() {
                     </div>
                   </div>
 
-                  <div className={`p-6 sm:p-8 lg:p-12 border mint-border ${isDarkMode ? 'bg-[#3EB489]/5' : 'bg-[#3EB489]/10'} transition-all duration-500 group cursor-pointer flex flex-col h-full relative overflow-hidden shadow-lg shadow-[#3EB489]/5`}>
+                  <a href="https://moonshotsandmagic.com" target="_blank" rel="noopener noreferrer" className={`p-6 sm:p-8 lg:p-12 border mint-border ${isDarkMode ? 'bg-[#3EB489]/5' : 'bg-[#3EB489]/10'} transition-all duration-500 group cursor-pointer flex flex-col h-full relative overflow-hidden shadow-lg shadow-[#3EB489]/5`}>
                     <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#3EB489]/20 rounded-full blur-3xl group-hover:bg-[#3EB489]/40 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
                     <SharedContextSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif italic text-2xl md:text-3xl font-medium mb-4 relative z-10 text-zinc-900 dark:text-white">Moonshots & Magic:<br/>Digital Twin</h3>
-                    <p className="text-zinc-700 dark:text-zinc-300 font-light mb-12 flex-grow relative z-10 leading-relaxed text-sm md:text-base">
+                    <h3 className="font-serif italic text-2xl md:text-3xl font-medium mb-4 relative z-10 text-zinc-950 dark:text-white">Moonshots & Magic:<br/>Digital Twin</h3>
+                    <p className="text-zinc-800 dark:text-zinc-300 font-light mb-12 flex-grow relative z-10 leading-relaxed text-sm md:text-base">
                       A living digital twin map system currently being developed for Central Florida. It serves as an initial demo of our contextual understanding framework, using AI to help others grasp a wide variety of contexts through a unique visualization. Acting as a digital second representation in its early stages, it is rooted in the historical context of our region—a place where Kennedy sparked a technological moonshot and Walt Disney built a world of imagination in the exact same decade.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest mt-auto mint-text relative z-10">
                       Enter The Map System <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
 
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-zinc-100/50 dark:bg-zinc-900/20">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-zinc-50 dark:bg-zinc-900/20">
                 <div className="flex flex-col items-start gap-4">
                   <BrandLogo className="w-16 h-16" />
-                  <h2 className="font-sans text-4xl font-bold tracking-tighter leading-[0.9] text-zinc-700 dark:text-zinc-300 uppercase">
+                  <h2 className="font-sans text-4xl font-bold tracking-tighter leading-[0.9] text-zinc-950 dark:text-zinc-300 uppercase">
                     Mirror<br/>Factory
                   </h2>
                   <p className="text-sm opacity-60 font-light max-w-sm leading-relaxed mt-2">
