@@ -148,6 +148,12 @@ const GLOBAL_CSS_ANIMATIONS = `
   .animate-gradient-shift { animation: gradient-shift 15s ease-in-out infinite; }
   .animate-pulse-glow { animation: pulse-glow 8s ease-in-out infinite; }
 
+  @keyframes frost-glass {
+    0%, 100% { background-color: transparent; backdrop-filter: blur(0px); }
+    50% { background-color: rgba(255, 255, 255, 0.02); backdrop-filter: blur(8px); }
+  }
+  .animate-frost-glass { animation: frost-glass 6s ease-in-out infinite; }
+
   @keyframes ripple-reflect {
     0% { transform: translateY(0) scaleY(1); opacity: 0.15; }
     50% { transform: translateY(-10px) scaleY(1.08); opacity: 0.25; }
@@ -784,7 +790,20 @@ export default function MirrorFactoryApp() {
       {/* Main Content Area */}
       <main className="pt-20 min-h-screen relative">
         <div className="fixed inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 divide-x divide-zinc-800/30 z-0">
-          {Array(12).fill(0).map((_, i) => <div key={i} className="h-full hidden md:block" />)}
+          {Array(12).fill(0).map((_, i) => {
+            // Apply frosted glass effect to specific panels with different delays
+            const frostPanels = [2, 5, 7, 10]; // Panel indices to animate
+            const isFrostPanel = frostPanels.includes(i);
+            const animationDelay = frostPanels.indexOf(i) * 1.5; // Stagger the animations
+
+            return (
+              <div
+                key={i}
+                className={`h-full hidden md:block ${isFrostPanel ? 'animate-frost-glass' : ''}`}
+                style={isFrostPanel ? { animationDelay: `${animationDelay}s` } : {}}
+              />
+            );
+          })}
         </div>
 
         <div className="flex-grow grid grid-cols-1 md:grid-cols-12 max-w-[90rem] mx-auto w-full border-x border-zinc-800/30 relative z-10 bg-transparent">
