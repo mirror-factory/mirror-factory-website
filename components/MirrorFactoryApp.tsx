@@ -118,6 +118,96 @@ const GLOBAL_CSS_ANIMATIONS = `
   .animate-layer-seq-3 { animation: float 6s ease-in-out infinite, layer-seq-3 8s infinite; animation-delay: 0.4s, 0s; }
   .animate-master-glow { animation: master-glow 8s infinite; }
 
+  @keyframes float-shape-1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+    25% { transform: translate(30px, -40px) rotate(90deg); opacity: 0.5; }
+    50% { transform: translate(50px, -20px) rotate(180deg); opacity: 0.3; }
+    75% { transform: translate(20px, -50px) rotate(270deg); opacity: 0.4; }
+  }
+  @keyframes float-shape-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.2; }
+    33% { transform: translate(-40px, 40px) rotate(120deg) scale(1.2); opacity: 0.4; }
+    66% { transform: translate(-60px, -30px) rotate(240deg) scale(0.9); opacity: 0.3; }
+  }
+  @keyframes float-shape-3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+    50% { transform: translate(-30px, 50px) rotate(180deg); opacity: 0.2; }
+  }
+  @keyframes gradient-shift {
+    0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.6; }
+    33% { transform: translate(-20%, 20%) scale(1.3); opacity: 0.8; }
+    66% { transform: translate(20%, -20%) scale(0.9); opacity: 0.5; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { filter: blur(40px); opacity: 0.4; }
+    50% { filter: blur(60px); opacity: 0.7; }
+  }
+  .animate-float-shape-1 { animation: float-shape-1 25s ease-in-out infinite; }
+  .animate-float-shape-2 { animation: float-shape-2 30s ease-in-out infinite; }
+  .animate-float-shape-3 { animation: float-shape-3 20s ease-in-out infinite; }
+  .animate-gradient-shift { animation: gradient-shift 15s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 8s ease-in-out infinite; }
+
+  @keyframes ripple-reflect {
+    0% { transform: translateY(0) scaleY(1); opacity: 0.15; }
+    50% { transform: translateY(-10px) scaleY(1.08); opacity: 0.25; }
+    100% { transform: translateY(0) scaleY(1); opacity: 0.15; }
+  }
+  @keyframes water-wave {
+    0%, 100% { transform: translateX(0) rotate(0deg); opacity: 0.2; }
+    25% { transform: translateX(20px) rotate(2deg); opacity: 0.4; }
+    50% { transform: translateX(-15px) rotate(-2deg); opacity: 0.3; }
+    75% { transform: translateX(10px) rotate(1deg); opacity: 0.35; }
+  }
+  @keyframes shimmer-sweep {
+    0% { transform: translateX(-100%) rotate(-10deg); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateX(200%) rotate(-10deg); opacity: 0; }
+  }
+  @keyframes glass-shine {
+    0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.08; }
+    50% { transform: translateX(-50%) scaleX(1.5); opacity: 0.15; }
+  }
+  @keyframes mirror-flip {
+    0%, 100% { transform: rotateY(0deg) translateX(0); opacity: 0.2; }
+    25% { transform: rotateY(180deg) translateX(10px); opacity: 0.4; }
+    50% { transform: rotateY(360deg) translateX(0); opacity: 0.3; }
+    75% { transform: rotateY(180deg) translateX(-10px); opacity: 0.35; }
+  }
+  @keyframes symmetric-pulse {
+    0%, 100% { transform: scaleX(1); opacity: 0.15; }
+    50% { transform: scaleX(-1); opacity: 0.25; }
+  }
+  .animate-ripple-reflect { animation: ripple-reflect 6s ease-in-out infinite; }
+  .animate-water-wave { animation: water-wave 12s ease-in-out infinite; }
+  .animate-shimmer-sweep { animation: shimmer-sweep 8s ease-in-out infinite; }
+  .animate-glass-shine { animation: glass-shine 10s ease-in-out infinite; }
+  .animate-mirror-flip { animation: mirror-flip 15s ease-in-out infinite; }
+  .animate-symmetric-pulse { animation: symmetric-pulse 8s ease-in-out infinite; }
+
+  @keyframes ripple-ring {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    50% { transform: scale(1.5); opacity: 0.2; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+  @keyframes light-beam {
+    0% { transform: translateX(-150%) rotate(45deg); opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { transform: translateX(150%) rotate(45deg); opacity: 0; }
+  }
+  @keyframes diagonal-sweep {
+    0%, 100% { transform: translate(-100%, -100%) rotate(45deg); opacity: 0; }
+    50% { transform: translate(50%, 50%) rotate(45deg); opacity: 0.2; }
+  }
+  @keyframes reflect-bounce {
+    0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.3; }
+    50% { transform: translateX(20px) scaleX(-1); opacity: 0.5; }
+  }
+  .animate-ripple-ring { animation: ripple-ring 4s ease-out infinite; }
+  .animate-light-beam { animation: light-beam 12s ease-in-out infinite; }
+  .animate-diagonal-sweep { animation: diagonal-sweep 15s ease-in-out infinite; }
+  .animate-reflect-bounce { animation: reflect-bounce 8s ease-in-out infinite; }
+
   @keyframes scan-lines {
     0% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 20; }
@@ -364,6 +454,25 @@ function LogoVariationSVG({ variant, color }: LogoVariationSVGProps) {
       </svg>
     )
   }
+  if (variant === 'horizontal-subtitle') {
+    return (
+      <svg viewBox="0 0 350 130" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-h-20">
+        <g transform="translate(0, 10) scale(0.8)">{iconGroup}</g>
+        <text x="95" y="55" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="42" letterSpacing="-1.5" fill={fill}>Mirror Factory</text>
+        <text x="95" y="85" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="16" letterSpacing="0.5" fill={fill} opacity="0.7">Human Factors Research Company</text>
+      </svg>
+    )
+  }
+  if (variant === 'tall-subtitle') {
+    return (
+      <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-h-36">
+        <g transform="translate(50, 0)">{iconGroup}</g>
+        <text x="100" y="135" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="38" letterSpacing="-1" textAnchor="middle" fill={fill}>MIRROR</text>
+        <text x="100" y="170" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="38" letterSpacing="-1" textAnchor="middle" fill={fill}>FACTORY</text>
+        <text x="100" y="200" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="14" letterSpacing="0.5" textAnchor="middle" fill={fill} opacity="0.7">Human Factors Research Company</text>
+      </svg>
+    )
+  }
   return null
 }
 
@@ -401,7 +510,7 @@ function TheSieveSVG({ isDarkMode }: SVGComponentProps) {
     <div className="w-full flex justify-center mb-10 relative h-48">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
         <g className="animate-chaotic-flow">
-          <path d="M 20 20 Q 80 50 100 100 M 50 10 Q 90 60 100 100 M 180 20 Q 120 50 100 100 M 150 10 Q 110 60 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-950 dark:text-zinc-200" strokeDasharray="4 6" />
+          <path d="M 20 20 Q 80 50 100 100 M 50 10 Q 90 60 100 100 M 180 20 Q 120 50 100 100 M 150 10 Q 110 60 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-60 dark:opacity-30 text-zinc-950 dark:text-zinc-200" strokeDasharray="4 6" />
         </g>
         <path d="M 40 80 C 70 80 80 120 90 140 C 95 150 105 150 110 140 C 120 120 130 80 160 80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200" />
         <g>
@@ -420,7 +529,7 @@ function ThoughtWeaverSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-10 relative h-48">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="animate-human-chaos text-zinc-950 dark:text-zinc-200 opacity-50" strokeDasharray="8 6" />
+        <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="animate-human-chaos text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-50" strokeDasharray="8 6" />
         <path d="M 20 100 C 50 40, 100 160, 130 100 C 150 60, 180 140, 180 100" fill="none" stroke="#3EB489" strokeWidth="2" strokeLinecap="round" className="animate-draw-weave" strokeDasharray="300" strokeDashoffset="300" />
         <circle cx="75" cy="100" r="4.5" fill="#3EB489" className="animate-pulse opacity-80" />
         <circle cx="155" cy="100" r="4.5" fill="#3EB489" className="animate-pulse opacity-80" style={{ animationDelay: '1s' }} />
@@ -436,10 +545,10 @@ function EnvironmentalSyncSVG({ isDarkMode }: SVGComponentProps) {
         <circle cx="100" cy="100" r="8" fill="#3EB489" className="drop-shadow-[0_0_8px_rgba(62,180,137,0.5)]" />
         <circle cx="100" cy="100" r="40" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-20 animate-ping-slow" />
         <circle cx="100" cy="100" r="70" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-10 animate-ping-slow" style={{ animationDelay: '1s' }} />
-        <path d="M 100 100 L 140 60 M 100 100 L 50 120 M 100 100 L 120 160" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="4 4" className="animate-scan-lines opacity-50" />
-        <rect x="135" y="50" width="10" height="10" className="text-zinc-950 dark:text-zinc-200 opacity-50" transform="rotate(45 140 55)" />
-        <circle cx="45" cy="125" r="6" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
-        <polygon points="120,165 115,175 125,175" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
+        <path d="M 100 100 L 140 60 M 100 100 L 50 120 M 100 100 L 120 160" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="4 4" className="animate-scan-lines opacity-70 dark:opacity-50" />
+        <rect x="135" y="50" width="10" height="10" className="text-zinc-950 dark:text-zinc-200 opacity-80 dark:opacity-50" transform="rotate(45 140 55)" />
+        <circle cx="45" cy="125" r="6" className="text-zinc-950 dark:text-zinc-200 opacity-80 dark:opacity-50" />
+        <polygon points="120,165 115,175 125,175" className="text-zinc-950 dark:text-zinc-200 opacity-80 dark:opacity-50" />
       </svg>
     </div>
   )
@@ -465,11 +574,11 @@ function SharedContextSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 300 150" className="w-full h-full overflow-visible">
-        <path d="M 50 30 C 80 30, 90 60, 90 75 C 90 90, 80 120, 50 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-60" />
+        <path d="M 50 30 C 80 30, 90 60, 90 75 C 90 90, 80 120, 50 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-80 dark:opacity-60" />
         <circle cx="70" cy="75" r="4" fill="#3EB489" className="opacity-80 drop-shadow-[0_0_4px_rgba(62,180,137,0.8)]" />
-        <path d="M 250 30 C 220 30, 210 60, 210 75 C 210 90, 220 120, 250 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-60" />
+        <path d="M 250 30 C 220 30, 210 60, 210 75 C 210 90, 220 120, 250 120" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-zinc-950 dark:text-zinc-200 opacity-80 dark:opacity-60" />
         <circle cx="230" cy="75" r="4" fill="#2563EB" className="animate-recipient-glow" />
-        <path d="M 95 75 C 130 50, 170 100, 205 75" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="6 6" className="animate-scan-lines opacity-50" />
+        <path d="M 95 75 C 130 50, 170 100, 205 75" fill="none" stroke="#3EB489" strokeWidth="1.5" strokeDasharray="6 6" className="animate-scan-lines opacity-70 dark:opacity-50" />
         <circle cx="0" cy="0" r="4" fill="#3EB489" className="animate-travel-packet-1 drop-shadow-[0_0_5px_rgba(62,180,137,0.8)]">
           <animateMotion dur="4s" repeatCount="indefinite" path="M 95 75 C 130 50, 170 100, 205 75" />
         </circle>
@@ -485,8 +594,8 @@ function ContextBufferSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <path d="M 10 50 L 70 80 M 10 100 L 70 100 M 10 150 L 70 120" stroke="currentColor" strokeWidth="1.5" className="opacity-30 text-zinc-950 dark:text-zinc-200 animate-pulse" strokeDasharray="4 4"/>
-        <path d="M 20 70 L 60 90 M 20 130 L 60 110" stroke="#3EB489" strokeWidth="1.5" className="opacity-50 animate-fast-dash" strokeDasharray="4 4"/>
+        <path d="M 10 50 L 70 80 M 10 100 L 70 100 M 10 150 L 70 120" stroke="currentColor" strokeWidth="1.5" className="opacity-60 dark:opacity-30 text-zinc-950 dark:text-zinc-200 animate-pulse" strokeDasharray="4 4"/>
+        <path d="M 20 70 L 60 90 M 20 130 L 60 110" stroke="#3EB489" strokeWidth="1.5" className="opacity-70 dark:opacity-50 animate-fast-dash" strokeDasharray="4 4"/>
         <path d="M 90 40 Q 120 100 90 160" fill="none" stroke="#3EB489" strokeWidth="4" strokeLinecap="round" className="drop-shadow-[0_0_8px_rgba(62,180,137,0.6)] animate-shield-pulse" />
         <path d="M 115 100 L 190 100" fill="none" stroke="#3EB489" strokeWidth="2.5" strokeLinecap="round" className="animate-smooth-flow" strokeDasharray="100" strokeDashoffset="100" />
       </svg>
@@ -501,9 +610,9 @@ function HumanAgencySVG({ isDarkMode }: SVGComponentProps) {
         <circle cx="40" cy="60" r="6" fill="#3EB489" className="animate-float-node-1 drop-shadow-[0_0_4px_rgba(62,180,137,0.5)]" />
         <circle cx="160" cy="70" r="5" fill="#3EB489" className="animate-float-node-2 drop-shadow-[0_0_4px_rgba(62,180,137,0.5)]" />
         <circle cx="100" cy="40" r="7" fill="#3EB489" className="animate-float-node-3 drop-shadow-[0_0_4px_rgba(62,180,137,0.5)]" />
-        <path d="M 100 150 Q 70 100 40 60" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" />
-        <path d="M 100 150 Q 130 110 160 70" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '0.5s'}}/>
-        <path d="M 100 150 L 100 40" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '1s'}}/>
+        <path d="M 100 150 Q 70 100 40 60" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-60 dark:opacity-40 animate-tether-pull" strokeDasharray="4 4" />
+        <path d="M 100 150 Q 130 110 160 70" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-60 dark:opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '0.5s'}}/>
+        <path d="M 100 150 L 100 40" fill="none" stroke="#3EB489" strokeWidth="1.5" className="opacity-60 dark:opacity-40 animate-tether-pull" strokeDasharray="4 4" style={{animationDelay: '1s'}}/>
         <circle cx="100" cy="150" r="10" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 z-10 relative" />
         <circle cx="100" cy="150" r="16" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20 animate-ping-slow" />
       </svg>
@@ -515,8 +624,8 @@ function EmpathyEngineSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <circle cx="80" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-950 dark:text-zinc-200 opacity-50" />
-        <circle cx="120" cy="100" r="40" fill="none" stroke="#3EB489" strokeWidth="2" className="opacity-50" />
+        <circle cx="80" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-50" />
+        <circle cx="120" cy="100" r="40" fill="none" stroke="#3EB489" strokeWidth="2" className="opacity-70 dark:opacity-50" />
         <path d="M 100 65 A 40 40 0 0 0 100 135 A 40 40 0 0 0 100 65" fill="#3EB489" className="animate-empathy-pulse mix-blend-screen" />
         <circle cx="100" cy="100" r="8" fill="currentColor" className="text-zinc-900 dark:text-zinc-50 z-10" />
       </svg>
@@ -528,11 +637,11 @@ function DataRefinerySVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <rect x="20" y="60" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" />
-        <rect x="40" y="80" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.2s'}} />
-        <rect x="20" y="100" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.4s'}} />
-        <rect x="40" y="120" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.6s'}} />
-        <rect x="20" y="140" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-40 animate-block-fade" style={{animationDelay: '0.8s'}} />
+        <rect x="20" y="60" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-40 animate-block-fade" />
+        <rect x="40" y="80" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-40 animate-block-fade" style={{animationDelay: '0.2s'}} />
+        <rect x="20" y="100" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-40 animate-block-fade" style={{animationDelay: '0.4s'}} />
+        <rect x="40" y="120" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-40 animate-block-fade" style={{animationDelay: '0.6s'}} />
+        <rect x="20" y="140" width="8" height="8" fill="currentColor" className="text-zinc-950 dark:text-zinc-200 opacity-70 dark:opacity-40 animate-block-fade" style={{animationDelay: '0.8s'}} />
         <circle cx="80" cy="104" r="15" fill="none" stroke="#3EB489" strokeWidth="2" className="animate-spin-slow" strokeDasharray="10 10" />
         <circle cx="80" cy="104" r="4" fill="#3EB489" />
         <path d="M 95 104 C 130 104, 140 60, 180 60" fill="none" stroke="#3EB489" strokeWidth="3" strokeLinecap="round" className="animate-insight-curve drop-shadow-[0_0_6px_rgba(62,180,137,0.6)]" strokeDasharray="120" strokeDashoffset="120" />
@@ -545,9 +654,9 @@ function TemporalSyncSVG({ isDarkMode }: SVGComponentProps) {
   return (
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
-        <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
-        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-20" />
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-40 dark:opacity-20" />
+        <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-40 dark:opacity-20" />
+        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" className="text-zinc-950 dark:text-zinc-200 opacity-40 dark:opacity-20" />
         <path d="M 100 100 L 100 20 A 80 80 0 0 1 180 100 Z" fill="#3EB489" className="opacity-10 animate-radar-sweep" />
         <circle cx="100" cy="70" r="4" fill="#3EB489" className="animate-temporal-node" />
         <circle cx="100" cy="45" r="5" fill="#3EB489" className="animate-temporal-node" style={{animationDelay: '0.5s'}} />
@@ -563,7 +672,7 @@ function SovereignMindSVG({ isDarkMode }: SVGComponentProps) {
     <div className="w-full flex justify-center mb-8 relative h-40">
       <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
         <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-950 dark:text-zinc-200 opacity-80" />
-        <circle cx="100" cy="100" r="55" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-30 animate-boundary-breathe" />
+        <circle cx="100" cy="100" r="55" fill="none" stroke="#3EB489" strokeWidth="1" className="opacity-50 dark:opacity-30 animate-boundary-breathe" />
         <path d="M 85 100 C 85 80, 115 80, 115 100 C 115 120, 85 120, 85 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-950 dark:text-zinc-200 animate-pulse" />
         <circle cx="100" cy="100" r="3" fill="currentColor" className="text-zinc-950 dark:text-zinc-200" />
         <circle cx="30" cy="100" r="4" fill="#3EB489" className="animate-system-bounce-1" />
@@ -579,14 +688,25 @@ function SovereignMindSVG({ isDarkMode }: SVGComponentProps) {
 // ============================================================================
 export default function MirrorFactoryApp() {
   const [isDarkMode, setIsDarkMode] = useState(true)
-  const [currentPage, setCurrentPage] = useState('home')
+  const [heroVariation, setHeroVariation] = useState(1) // 1-4 for different hero animations
+  const [currentPage, setCurrentPage] = useState(() => {
+    // Check if URL has /brand-guide to show brand guide on load
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.includes('brand-guide') ? 'brand-guide' : 'home'
+    }
+    return 'home'
+  })
 
   // Array of Logo Variations for the Brand Guide
   const logoVariations = [
     { id: 'logo-horiz-dark', name: 'Primary Horizontal', variant: 'horizontal', color: 'white', bg: 'bg-[#09090b] border-zinc-800' },
     { id: 'logo-horiz-light', name: 'Primary Horizontal', variant: 'horizontal', color: 'black', bg: 'bg-[#fafafa] border-zinc-200' },
+    { id: 'logo-horiz-subtitle-dark', name: 'Horizontal with Subtitle', variant: 'horizontal-subtitle', color: 'white', bg: 'bg-[#09090b] border-zinc-800' },
+    { id: 'logo-horiz-subtitle-light', name: 'Horizontal with Subtitle', variant: 'horizontal-subtitle', color: 'black', bg: 'bg-[#fafafa] border-zinc-200' },
     { id: 'logo-tall-dark', name: 'Stacked / Tall', variant: 'tall', color: 'white', bg: 'bg-[#09090b] border-zinc-800' },
     { id: 'logo-tall-light', name: 'Stacked / Tall', variant: 'tall', color: 'black', bg: 'bg-[#fafafa] border-zinc-200' },
+    { id: 'logo-tall-subtitle-dark', name: 'Stacked with Subtitle', variant: 'tall-subtitle', color: 'white', bg: 'bg-[#09090b] border-zinc-800' },
+    { id: 'logo-tall-subtitle-light', name: 'Stacked with Subtitle', variant: 'tall-subtitle', color: 'black', bg: 'bg-[#fafafa] border-zinc-200' },
     { id: 'logo-mf-dark', name: 'Monogram (MF)', variant: 'mf', color: 'white', bg: 'bg-[#09090b] border-zinc-800' },
     { id: 'logo-mf-light', name: 'Monogram (MF)', variant: 'mf', color: 'black', bg: 'bg-[#fafafa] border-zinc-200' },
     { id: 'logo-icon-mint', name: 'Icon Mark (Mint)', variant: 'icon', color: 'mint', bg: 'bg-[#09090b] border-zinc-800' },
@@ -599,7 +719,7 @@ export default function MirrorFactoryApp() {
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-4 md:py-5 backdrop-blur-md bg-white/80 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
+      <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-4 md:py-5 backdrop-blur-md bg-white/95 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
         <button
           onClick={() => setCurrentPage('home')}
           className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:opacity-80 transition-opacity"
@@ -630,6 +750,12 @@ export default function MirrorFactoryApp() {
 
         <div className="flex items-center gap-4 md:gap-6">
           <span className="text-xs font-mono uppercase tracking-widest opacity-40 hidden sm:block border-r border-zinc-300 dark:border-zinc-700 pr-6">Human Factors Research</span>
+          <button
+            onClick={() => setCurrentPage(currentPage === 'home' ? 'brand-guide' : 'home')}
+            className="text-xs font-mono uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-[#3EB489] transition-all hidden sm:block"
+          >
+            {currentPage === 'home' ? 'Brand Guide' : 'Home'}
+          </button>
           <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-[#3EB489] dark:hover:border-[#3EB489] transition-all group">
             {isDarkMode ? <Sun size={16} className="group-hover:text-[#3EB489] transition-colors" /> : <Moon size={16} className="group-hover:text-[#3EB489] transition-colors" />}
           </button>
@@ -655,16 +781,20 @@ export default function MirrorFactoryApp() {
                  <p className="text-xs sm:text-sm opacity-70 mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400">
                    &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
                  </p>
-                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50">— Ray Bradbury, Fahrenheit 451</p>
+                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
               <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:p-24 flex flex-col justify-center min-h-[50vh] md:min-h-[85vh] animate-reveal border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none" />
+                {/* Hero Background - Gradient Glows Only */}
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/8 dark:from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift" style={{ animationDelay: '2s' }} />
+                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none" style={{ animationDelay: '5s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/5 dark:from-[#3EB489]/8 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none" style={{ animationDelay: '3s' }} />
 
                 <div className="max-w-4xl relative z-10">
                   <div className="flex items-center gap-3 mb-6 sm:mb-8 opacity-60">
                     <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest">Human Factors AI Research</span>
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-400">Human Factors AI Research</span>
                   </div>
 
                   <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-medium leading-[0.95] mb-8 md:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -688,8 +818,14 @@ export default function MirrorFactoryApp() {
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-200 dark:border-zinc-800/50">
-                <div className="max-w-3xl fade-in delay-100 mx-auto text-center md:text-left">
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+                {/* Reflection Background Variation 1: Water Ripple Effect */}
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-[#3EB489]/10 to-transparent rounded-full blur-3xl animate-ripple-reflect pointer-events-none" />
+                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-teal-500/10 to-transparent rounded-full blur-3xl animate-water-wave pointer-events-none" />
+                <div className="absolute top-1/3 right-1/3 w-64 h-64 border border-[#3EB489]/10 rounded-full animate-water-wave pointer-events-none" style={{ animationDelay: '2s' }} />
+                <div className="absolute bottom-1/3 left-1/3 w-48 h-48 bg-[#3EB489]/5 rounded-full animate-ripple-reflect pointer-events-none" style={{ animationDelay: '4s' }} />
+
+                <div className="max-w-3xl fade-in delay-100 mx-auto text-center md:text-left relative z-10">
                   <h2 className="font-serif text-4xl md:text-5xl font-medium mb-12">Who We Are</h2>
                   <div className="prose prose-lg md:prose-xl dark:prose-invert font-sans font-light leading-relaxed text-zinc-600 dark:text-zinc-300">
                     <p>
@@ -733,8 +869,15 @@ export default function MirrorFactoryApp() {
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50">
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left">The Architecture of Study</h2>
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+                {/* Reflection Background Variation 2: Glass Shimmer Effect (Slower & Subtler) */}
+                <div className="absolute top-0 left-1/2 w-[800px] h-full bg-gradient-to-b from-[#3EB489]/3 via-transparent to-[#3EB489]/3 animate-glass-shine pointer-events-none opacity-50" style={{ animationDuration: '18s' }} />
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="absolute top-0 -left-1/4 w-[200%] h-32 bg-gradient-to-r from-transparent via-white/4 dark:via-white/2 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDuration: '16s' }} />
+                  <div className="absolute bottom-1/3 -left-1/4 w-[200%] h-24 bg-gradient-to-r from-transparent via-teal-400/4 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDelay: '8s', animationDuration: '16s' }} />
+                </div>
+
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10">The Architecture of Study</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -770,8 +913,15 @@ export default function MirrorFactoryApp() {
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50">
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16">Active Initiatives</h2>
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+                {/* Reflection Background Variation 3: Mirror Symmetry Effect */}
+                <div className="absolute top-1/4 left-0 w-64 h-full bg-gradient-to-r from-[#3EB489]/10 to-transparent animate-symmetric-pulse pointer-events-none" />
+                <div className="absolute top-1/4 right-0 w-64 h-full bg-gradient-to-l from-teal-500/10 to-transparent animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '4s' }} />
+                <div className="absolute top-1/3 left-1/3 w-32 h-32 border-2 border-[#3EB489]/20 rounded-lg animate-mirror-flip pointer-events-none" />
+                <div className="absolute bottom-1/3 right-1/4 w-40 h-40 border border-teal-500/20 rounded-full animate-mirror-flip pointer-events-none" style={{ animationDelay: '5s', animationDuration: '18s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/5 to-transparent rounded-full blur-3xl animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
+
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10">Active Initiatives</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                   <div className={`p-8 lg:p-12 border ${isDarkMode ? 'border-zinc-800 hover:border-[#3EB489]/50' : 'border-zinc-200 hover:border-[#3EB489]/50'} transition-all duration-500 group flex flex-col h-full bg-white/5`}>
@@ -789,7 +939,7 @@ export default function MirrorFactoryApp() {
                   </div>
 
                   <a href="https://moonshotsandmagic.com" target="_blank" rel="noopener noreferrer" className={`p-6 sm:p-8 lg:p-12 border mint-border ${isDarkMode ? 'bg-[#3EB489]/5' : 'bg-[#3EB489]/10'} transition-all duration-500 group cursor-pointer flex flex-col h-full relative overflow-hidden shadow-lg shadow-[#3EB489]/5`}>
-                    <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#3EB489]/20 rounded-full blur-3xl group-hover:bg-[#3EB489]/40 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
+                    <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#3EB489]/8 rounded-full blur-3xl group-hover:bg-[#3EB489]/15 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
                     <SharedContextSVG isDarkMode={isDarkMode} />
                     <h3 className="font-serif italic text-2xl md:text-3xl font-medium mb-4 relative z-10 text-zinc-950 dark:text-white">Moonshots & Magic:<br/>Digital Twin</h3>
                     <p className="text-zinc-800 dark:text-zinc-300 font-light mb-12 flex-grow relative z-10 leading-relaxed text-sm md:text-base">
@@ -803,13 +953,13 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-zinc-50 dark:bg-zinc-900/20">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-white dark:bg-zinc-900/20 border-t border-zinc-200 dark:border-zinc-800/30">
                 <div className="flex flex-col items-start gap-4">
                   <BrandLogo className="w-16 h-16" />
                   <h2 className="font-sans text-4xl font-bold tracking-tighter leading-[0.9] text-zinc-950 dark:text-zinc-300 uppercase">
                     Mirror<br/>Factory
                   </h2>
-                  <p className="text-sm opacity-60 font-light max-w-sm leading-relaxed mt-2">
+                  <p className="text-sm opacity-60 font-light max-w-sm leading-relaxed mt-2 text-zinc-900 dark:text-zinc-400">
                     Building the reflective layer for the algorithmic age. <br/>
                     Based globally. Operating thoughtfully.
                   </p>
@@ -817,11 +967,9 @@ export default function MirrorFactoryApp() {
 
                 <div className="flex flex-col items-start md:items-end gap-6">
                   <div className="flex gap-6 opacity-80">
-                    <a href="#" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium"><Twitter size={18} /> Twitter</a>
-                    <a href="#" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium"><Github size={18} /> Github</a>
-                    <a href="#" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium"><Mail size={18} /> Contact</a>
+                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#3EB489] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact</a>
                   </div>
-                  <p className="text-xs font-mono opacity-40 uppercase tracking-widest">
+                  <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-900 dark:text-zinc-400">
                     © {new Date().getFullYear()} Mirror Factory. All rights reserved.
                   </p>
                 </div>
@@ -839,7 +987,7 @@ export default function MirrorFactoryApp() {
                 <div className="max-w-5xl mx-auto">
                   <div className="flex items-center gap-3 mb-6 sm:mb-8 opacity-60">
                     <Palette size={18} className="mint-text" />
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest">Visual Identity & Design System</span>
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-400">Visual Identity & Design System</span>
                   </div>
                   <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium leading-[0.95] mb-8 tracking-tight text-zinc-950 dark:text-zinc-50">
                     Brand <span className="italic mint-text">Guide.</span>
@@ -1055,12 +1203,12 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col items-center gap-8 bg-zinc-50 dark:bg-zinc-900/20 text-center">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col items-center gap-8 bg-white dark:bg-zinc-900/20 text-center border-t border-zinc-200 dark:border-zinc-800/30">
                 <BrandLogo className="w-16 h-16" />
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+                <p className="text-sm text-zinc-900 dark:text-zinc-400 max-w-md">
                   Mirror Factory Brand Guide • All assets and guidelines are proprietary
                 </p>
-                <p className="text-xs font-mono opacity-40 uppercase tracking-widest">
+                <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-900 dark:text-zinc-400">
                   © {new Date().getFullYear()} Mirror Factory
                 </p>
               </div>
