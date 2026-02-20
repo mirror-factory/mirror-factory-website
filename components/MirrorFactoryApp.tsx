@@ -829,20 +829,6 @@ export default function MirrorFactoryApp() {
                       >
                         {isFrostPanel && (
                           <>
-                            {/* Floating particles */}
-                            <div
-                              className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-[#3EB489]/40 animate-float-particle"
-                              style={{ animationDelay: `${animationDelay + 0.5}s` }}
-                            />
-                            <div
-                              className="absolute top-1/2 left-2/3 w-1.5 h-1.5 rounded-full bg-[#EA580C]/30 animate-float-particle"
-                              style={{ animationDelay: `${animationDelay + 1}s` }}
-                            />
-                            <div
-                              className="absolute top-3/4 left-1/2 w-1 h-1 rounded-full bg-white/20 animate-float-particle"
-                              style={{ animationDelay: `${animationDelay + 1.5}s` }}
-                            />
-
                             {/* Scanning shimmer effect */}
                             <div
                               className="absolute inset-x-0 h-32 bg-gradient-to-b from-transparent via-[#3EB489]/10 to-transparent animate-shimmer-scan"
@@ -955,7 +941,7 @@ export default function MirrorFactoryApp() {
                   <div className="absolute bottom-1/3 -left-1/4 w-[200%] h-24 bg-gradient-to-r from-transparent via-teal-400/4 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDelay: '8s', animationDuration: '16s' }} />
                 </div>
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-50">The Architecture of Study</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-50">Our Methodology</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
