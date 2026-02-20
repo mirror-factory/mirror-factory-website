@@ -737,7 +737,7 @@ export default function MirrorFactoryApp() {
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/95 dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
         <div className="max-w-[90rem] mx-auto w-full flex justify-between items-center px-6 md:px-8 py-4 md:py-5 border-x border-zinc-200 dark:border-zinc-800/30">
         <button
           onClick={() => setCurrentPage('home')}
@@ -849,7 +849,7 @@ export default function MirrorFactoryApp() {
                 <div className="absolute bottom-1/3 left-1/3 w-48 h-48 bg-[#3EB489]/5 rounded-full animate-ripple-reflect pointer-events-none" style={{ animationDelay: '4s' }} />
 
                 <div className="max-w-3xl fade-in delay-100 mx-auto text-center md:text-left relative z-10">
-                  <h2 className="font-serif text-4xl md:text-5xl font-medium mb-12">Who We Are</h2>
+                  <h2 className="font-serif text-4xl md:text-5xl font-medium mb-12 text-zinc-950 dark:text-zinc-50">Who We Are</h2>
                   <div className="prose prose-lg md:prose-xl dark:prose-invert font-sans font-light leading-relaxed text-zinc-600 dark:text-zinc-300">
                     <p>
                       We are a human-centered research laboratory and product studio. We do not just build AI; we explore the profound connection between people and artificial intelligence.
@@ -900,12 +900,12 @@ export default function MirrorFactoryApp() {
                   <div className="absolute bottom-1/3 -left-1/4 w-[200%] h-24 bg-gradient-to-r from-transparent via-teal-400/4 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDelay: '8s', animationDuration: '16s' }} />
                 </div>
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10">The Architecture of Study</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-950 dark:text-zinc-50">The Architecture of Study</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <TheSieveSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4">The Sieve & The Signal</h3>
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">The Sieve & The Signal</h3>
                     <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
                       In an era of overwhelming digital noise, we explore how to preserve the true human signal. We study how our authentic voice, creativity, and storytelling can thrive, rather than be washed away, when co-creating with AI.
                     </p>
@@ -913,7 +913,7 @@ export default function MirrorFactoryApp() {
 
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <ThoughtWeaverSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4">Cognitive Harmony</h3>
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">Cognitive Harmony</h3>
                     <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
                       Prolonged interaction with AI shapes how we process the world. We focus on designing experiences that weave artificial intelligence naturally into our own human thought patterns, ensuring that we guide the technology, rather than the technology guiding us.
                     </p>
@@ -921,7 +921,7 @@ export default function MirrorFactoryApp() {
 
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
                     <EnvironmentalSyncSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4">Contextual Sync</h3>
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">Contextual Sync</h3>
                     <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
                       True understanding requires holding multiple realities at once. We explore how AI can map to the different layers of our minds—from our professional jobs, to our personal lives, to raw ideation—so we don&apos;t have to constantly explain who we are.
                     </p>
@@ -944,12 +944,12 @@ export default function MirrorFactoryApp() {
                 <div className="absolute bottom-1/3 right-1/4 w-40 h-40 border border-teal-500/20 rounded-full animate-mirror-flip pointer-events-none" style={{ animationDelay: '5s', animationDuration: '18s' }} />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/5 to-transparent rounded-full blur-3xl animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10">Active Initiatives</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10 text-zinc-950 dark:text-zinc-50">Active Initiatives</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                   <div className={`p-8 lg:p-12 border ${isDarkMode ? 'border-zinc-800 hover:border-[#3EB489]/50' : 'border-zinc-200 hover:border-[#3EB489]/50'} transition-all duration-500 group flex flex-col h-full bg-white/5`}>
                     <ContextualLayersSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-3xl font-medium mb-4">Layers Whitepaper</h3>
+                    <h3 className="font-serif text-3xl font-medium mb-4 text-zinc-950 dark:text-zinc-50">Layers Whitepaper</h3>
                     <div className="inline-block px-3 py-1 border mint-border text-[#3EB489] text-[10px] font-mono uppercase tracking-widest mb-6 w-max rounded-full bg-[#3EB489]/10">
                       Coming Soon
                     </div>
