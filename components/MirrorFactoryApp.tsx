@@ -477,7 +477,7 @@ function LogoVariationSVG({ variant, color }: LogoVariationSVGProps) {
       <svg viewBox="0 0 350 130" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-h-20">
         <g transform="translate(0, 10) scale(0.8)">{iconGroup}</g>
         <text x="95" y="55" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="42" letterSpacing="-1.5" fill={fill}>Mirror Factory</text>
-        <text x="95" y="85" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="16" letterSpacing="0.5" fill={fill} opacity="0.7">Human Factors Research Company</text>
+        <text x="95" y="85" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="16" letterSpacing="0.5" fill={fill} opacity="0.7">Human Factors AI Research</text>
       </svg>
     )
   }
@@ -487,7 +487,7 @@ function LogoVariationSVG({ variant, color }: LogoVariationSVGProps) {
         <g transform="translate(50, 0)">{iconGroup}</g>
         <text x="100" y="135" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="38" letterSpacing="-1" textAnchor="middle" fill={fill}>MIRROR</text>
         <text x="100" y="170" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="38" letterSpacing="-1" textAnchor="middle" fill={fill}>FACTORY</text>
-        <text x="100" y="200" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="14" letterSpacing="0.5" textAnchor="middle" fill={fill} opacity="0.7">Human Factors Research Company</text>
+        <text x="100" y="200" fontFamily="'Playfair Display', serif" fontWeight="400" fontSize="14" letterSpacing="0.5" textAnchor="middle" fill={fill} opacity="0.7">Human Factors AI Research</text>
       </svg>
     )
   }
@@ -748,7 +748,7 @@ export default function MirrorFactoryApp() {
               <span className="animate-word-1 inline-block">Mirror</span>
               <span className="animate-word-2 inline-block">Factory</span>
             </span>
-            <span className="font-serif text-[10px] text-zinc-400 mt-0 tracking-wide">Human Factors Research Company</span>
+            <span className="font-serif text-[10px] text-zinc-400 mt-0 tracking-wide">Human Factors AI Research</span>
           </div>
         </button>
 
