@@ -399,7 +399,7 @@ function DownloadSVGButton({ targetId, filename, isDarkMode }: DownloadSVGButton
   }
 
   return (
-    <button onClick={handleDownload} className="flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest hover:text-[#3EB489] hover:border-[#3EB489] transition-colors mt-6 border border-zinc-200 dark:border-zinc-800 px-5 py-3 rounded-full w-full max-w-[200px] mx-auto bg-white/5 dark:bg-black/20">
+    <button onClick={handleDownload} className="flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest hover:text-[#3EB489] hover:border-[#3EB489] transition-colors mt-6 border border-zinc-800 px-5 py-3 rounded-full w-full max-w-[200px] mx-auto bg-white/5 dark:bg-black/20">
        <Download size={14} /> Download SVG
     </button>
   )
@@ -705,7 +705,6 @@ function SovereignMindSVG({ isDarkMode }: SVGComponentProps) {
 // MAIN APP COMPONENT
 // ============================================================================
 export default function MirrorFactoryApp() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
   const [heroVariation, setHeroVariation] = useState(1) // 1-4 for different hero animations
   const [currentPage, setCurrentPage] = useState(() => {
     // Check if URL has /brand-guide to show brand guide on load
@@ -732,25 +731,28 @@ export default function MirrorFactoryApp() {
   ]
 
   return (
-    <div className={`min-h-screen w-full transition-colors duration-700 font-sans ${isDarkMode ? 'bg-[#09090b] text-zinc-50 dark' : 'bg-[#fafafa] text-zinc-900'}`}>
+    <div className="min-h-screen w-full transition-colors duration-700 font-sans bg-[#09090b] text-zinc-50 dark">
 
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white dark:bg-black/20 border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
-        <div className="max-w-[90rem] mx-auto w-full flex justify-between items-center px-6 md:px-8 py-4 md:py-5 border-x border-zinc-200 dark:border-zinc-800/30">
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-zinc-800/80 transition-colors">
+        <div className="max-w-[90rem] mx-auto w-full flex justify-between items-center px-6 md:px-8 py-4 md:py-5 border-x border-zinc-800/30">
         <button
           onClick={() => setCurrentPage('home')}
           className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:opacity-80 transition-opacity"
         >
-          <BrandLogo className="w-7 h-7 md:w-8 md:h-8 animate-logo-intro" />
-          <span className="font-sans font-bold text-lg md:text-xl tracking-tighter leading-none pt-1 flex gap-1 md:gap-1.5 text-zinc-950 dark:text-zinc-50">
-            <span className="animate-word-1 inline-block">Mirror</span>
-            <span className="animate-word-2 inline-block">Factory</span>
-          </span>
+          <BrandLogo className="w-10 h-10 md:w-12 md:h-12 animate-logo-intro" />
+          <div className="flex flex-col gap-0 leading-none">
+            <span className="font-sans font-bold text-lg md:text-xl tracking-tighter leading-none pt-1 flex gap-1 md:gap-1.5 text-zinc-50">
+              <span className="animate-word-1 inline-block">Mirror</span>
+              <span className="animate-word-2 inline-block">Factory</span>
+            </span>
+            <span className="font-serif text-[10px] text-zinc-400 mt-0 tracking-wide">Human Factors Research Company</span>
+          </div>
         </button>
 
-        <div className="hidden md:flex items-center gap-6 text-sm font-sans font-medium opacity-60 ml-8 mr-auto">
+        <div className="hidden md:flex items-center gap-6 text-xs font-serif opacity-60 ml-8 mr-auto">
           {currentPage === 'home' ? (
             <>
               <a href="#mandate" className="hover:text-[#EA580C] transition-colors">Who We Are</a>
@@ -770,25 +772,22 @@ export default function MirrorFactoryApp() {
         <div className="flex items-center gap-4 md:gap-6">
           <a
             href="mailto:hello@mirrorfactory.com"
-            className="text-xs font-mono tracking-wider opacity-70 hover:opacity-100 hover:text-[#EA580C] transition-all hidden sm:flex items-center gap-2 text-zinc-900 dark:text-zinc-300"
+            className="text-xs font-mono tracking-wider opacity-70 hover:opacity-100 hover:text-[#EA580C] transition-all hidden sm:flex items-center gap-2 text-zinc-300"
           >
             <Mail size={14} />
             <span>hello@mirrorfactory.com</span>
           </a>
-          <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-full border border-zinc-200 dark:border-zinc-800 hover:border-[#EA580C] dark:hover:border-[#EA580C] transition-all group">
-            {isDarkMode ? <Sun size={16} className="group-hover:text-[#EA580C] transition-colors" /> : <Moon size={16} className="group-hover:text-[#EA580C] transition-colors" />}
-          </button>
         </div>
         </div>
       </nav>
 
       {/* Main Content Area */}
       <main className="pt-20 min-h-screen relative">
-        <div className={`fixed inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 ${isDarkMode ? 'divide-x divide-zinc-800/30' : 'divide-x divide-zinc-200/50'} z-0`}>
+        <div className="fixed inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 divide-x divide-zinc-800/30 z-0">
           {Array(12).fill(0).map((_, i) => <div key={i} className="h-full hidden md:block" />)}
         </div>
 
-        <div className="flex-grow grid grid-cols-1 md:grid-cols-12 max-w-[90rem] mx-auto w-full border-x border-zinc-200 dark:border-zinc-800/30 relative z-10 bg-transparent">
+        <div className="flex-grow grid grid-cols-1 md:grid-cols-12 max-w-[90rem] mx-auto w-full border-x border-zinc-800/30 relative z-10 bg-transparent">
 
           {currentPage === 'home' ? (
             // =========================================================
@@ -796,38 +795,38 @@ export default function MirrorFactoryApp() {
             // =========================================================
             <>
               {/* HERO */}
-              <div className="md:col-span-3 order-2 md:order-none border-b border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
-                 <div className="w-12 h-[2px] bg-gradient-to-r from-[#EA580C] to-[#3EB489] mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
-                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-600 dark:text-zinc-400 animate-slide-up delay-300">
+              <div className="md:col-span-3 order-2 md:order-none border-b border-r-0 md:border-r border-zinc-800/50 p-6 sm:p-8 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16 relative min-h-[30vh] sm:min-h-[35vh] md:min-h-[85vh]">
+                 <div className="w-12 h-[2px] mint-bg mb-4 sm:mb-6 md:mb-8 animate-slide-up delay-100" />
+                 <p className="text-xs sm:text-sm opacity-70 mb-3 sm:mb-4 font-serif italic leading-relaxed text-zinc-400 animate-slide-up delay-300">
                    &ldquo;Come, let&apos;s build a mirror factory first and put out nothing but mirrors for the next year and take a long look in them.&rdquo;
                  </p>
-                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-900 dark:text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
+                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
-              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Hero Background - Gradient Glows (Green + Copper/Orange) - Animated In */}
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/8 dark:from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
-                <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#EA580C]/6 dark:from-[#EA580C]/10 to-transparent rounded-full blur-3xl opacity-50 dark:opacity-60 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.3s' }} />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/6 dark:from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-40 dark:opacity-50 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.4s' }} />
-                <div className="absolute bottom-1/3 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-[#D2691E]/5 dark:from-[#D2691E]/8 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/6 dark:from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.6s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#3EB489]/4 dark:from-[#3EB489]/6 to-transparent rounded-full blur-[100px] opacity-60 dark:opacity-80 animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-t from-[#FF8C00]/4 dark:from-[#FF8C00]/7 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
+                <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#EA580C]/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.3s' }} />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#3EB489]/10 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.4s' }} />
+                <div className="absolute bottom-1/3 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-[#D2691E]/8 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-tr from-teal-500/10 to-transparent rounded-full blur-3xl animate-gradient-shift pointer-events-none animate-slide-up" style={{ animationDelay: '0.6s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#3EB489]/2 to-transparent rounded-full blur-[200px] opacity-20 animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.8s' }} />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-t from-[#FF8C00]/7 to-transparent rounded-full blur-3xl animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '1s' }} />
 
                 <div className="max-w-4xl relative z-10 w-full md:ml-0">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
                     <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
-                    <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-300">Human Factors AI Research</span>
+                    <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-300">Human Factors AI Research</span>
                   </div>
 
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-medium leading-[1.05] sm:leading-[1] md:leading-[0.95] mb-6 sm:mb-8 md:mb-10 lg:mb-12 tracking-tight text-zinc-950 dark:text-zinc-50 animate-slide-up delay-400">
+                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-medium leading-[1.05] sm:leading-[1] md:leading-[0.95] mb-6 sm:mb-8 md:mb-10 lg:mb-12 tracking-tight text-zinc-50 animate-slide-up delay-400">
                     Intelligence <br className="hidden sm:block" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3EB489] to-teal-700 italic pr-2 sm:pr-4 animate-glow-pulse">Requires</span> <br className="hidden sm:block" />
                     Reflection.
                   </h1>
 
                   <div className="border-l-4 border-l-[#EA580C]/60 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-600 dark:text-zinc-400 leading-snug font-extralight max-w-2xl">
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-400 leading-snug font-extralight max-w-2xl">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
                   </div>
@@ -835,13 +834,13 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 1: THE MANDATE / WHO WE ARE */}
-              <div id="mandate" className="md:col-span-3 border-b md:border-b-0 border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 hidden md:block">
+              <div id="mandate" className="md:col-span-3 border-b md:border-b-0 border-r-0 md:border-r border-zinc-800/50 p-6 sm:p-8 hidden md:block">
                  <div className="sticky top-32 opacity-40">
                    <span className="font-mono text-xs uppercase tracking-widest transform -rotate-90 inline-block origin-top-left translate-y-24">01 — Who We Are</span>
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Reflection Background Variation 1: Water Ripple Effect */}
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-[#3EB489]/10 to-transparent rounded-full blur-3xl animate-ripple-reflect pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-teal-500/10 to-transparent rounded-full blur-3xl animate-water-wave pointer-events-none" />
@@ -849,15 +848,15 @@ export default function MirrorFactoryApp() {
                 <div className="absolute bottom-1/3 left-1/3 w-48 h-48 bg-[#3EB489]/5 rounded-full animate-ripple-reflect pointer-events-none" style={{ animationDelay: '4s' }} />
 
                 <div className="max-w-3xl fade-in delay-100 mx-auto text-center md:text-left relative z-10">
-                  <h2 className="font-serif text-4xl md:text-5xl font-medium mb-12 text-zinc-950 dark:text-zinc-50">Who We Are</h2>
-                  <div className="prose prose-lg md:prose-xl dark:prose-invert font-sans font-light leading-relaxed text-zinc-600 dark:text-zinc-300">
+                  <h2 className="font-serif text-4xl md:text-5xl font-medium mb-12 text-zinc-50">Who We Are</h2>
+                  <div className="prose prose-lg md:prose-xl dark:prose-invert font-sans font-light leading-relaxed text-zinc-300">
                     <p>
                       We are a human-centered research laboratory and product studio. We do not just build AI; we explore the profound connection between people and artificial intelligence.
                     </p>
 
-                    <SymmetryMirrorSVG isDarkMode={isDarkMode} />
+                    <SymmetryMirrorSVG isDarkMode={true} />
 
-                    <p className="font-serif italic text-2xl md:text-3xl text-zinc-900 dark:text-white pl-6 md:pl-8 border-l-2 mint-border leading-snug my-16">
+                    <p className="font-serif italic text-2xl md:text-3xl text-white pl-6 md:pl-8 border-l-2 mint-border leading-snug my-16">
                       Our core thesis is exploration and harmony. We are not trying to merge human and machine into a single synced system; we seek to understand how we can best work with AI to make our lives deeply better.
                     </p>
 
@@ -869,7 +868,7 @@ export default function MirrorFactoryApp() {
                       We are researching how to build systems that grant us superpowers while giving us back our lives, allowing us to focus more on the humanities of this earth. To <em>be</em>, instead of just to <em>do</em>. To still have the energy and space to create.
                     </p>
 
-                    <h3 className="font-serif text-3xl font-medium mt-16 mb-6 text-zinc-900 dark:text-white">The Foundation</h3>
+                    <h3 className="font-serif text-3xl font-medium mt-16 mb-6 text-white">The Foundation</h3>
                     <p>
                       The foundation of this mission is built by three partners: Kyle Morrand, Bobby Torres, and Alfonso Morales.
                     </p>
@@ -877,7 +876,7 @@ export default function MirrorFactoryApp() {
                       With a shared background in simulation and mixed reality, our focus has always been on the human experience within digital spaces. This perspective drives our desire to answer the practical questions of the AI age: What is worth our time? What is worth handing off? How do we use deep context to build out an entire campaign or brand, without losing the human soul behind it?
                     </p>
 
-                    <h3 className="font-serif text-3xl font-medium mt-16 mb-6 text-zinc-900 dark:text-white">Validated Research & Real-World Integration</h3>
+                    <h3 className="font-serif text-3xl font-medium mt-16 mb-6 text-white">Validated Research & Real-World Integration</h3>
                     <p>
                       To find these answers, we partner heavily with higher education and universities to conduct validated studies and publish our findings. Simultaneously, we actively help companies bring these AI ecosystems into their own teams. This real-world integration continuously deepens our understanding of human-AI partnership, allowing us to bridge the gap between academic theory and daily human utility.
                     </p>
@@ -886,13 +885,13 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 2: METHODOLOGY */}
-              <div id="methodology" className="md:col-span-3 border-b md:border-b-0 border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 hidden md:block">
+              <div id="methodology" className="md:col-span-3 border-b md:border-b-0 border-r-0 md:border-r border-zinc-800/50 p-6 sm:p-8 hidden md:block">
                  <div className="sticky top-32 opacity-40">
                    <span className="font-mono text-xs uppercase tracking-widest transform -rotate-90 inline-block origin-top-left translate-y-28">02 — Methodology</span>
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Reflection Background Variation 2: Glass Shimmer Effect (Slower & Subtler) */}
                 <div className="absolute top-0 left-1/2 w-[800px] h-full bg-gradient-to-b from-[#3EB489]/3 via-transparent to-[#3EB489]/3 animate-glass-shine pointer-events-none opacity-50" style={{ animationDuration: '18s' }} />
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -900,29 +899,29 @@ export default function MirrorFactoryApp() {
                   <div className="absolute bottom-1/3 -left-1/4 w-[200%] h-24 bg-gradient-to-r from-transparent via-teal-400/4 to-transparent -rotate-12 animate-shimmer-sweep pointer-events-none opacity-40" style={{ animationDelay: '8s', animationDuration: '16s' }} />
                 </div>
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-950 dark:text-zinc-50">The Architecture of Study</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-20 text-center md:text-left relative z-10 text-zinc-50">The Architecture of Study</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <TheSieveSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">The Sieve & The Signal</h3>
-                    <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                    <TheSieveSVG isDarkMode={true} />
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-50">The Sieve & The Signal</h3>
+                    <p className="font-light text-zinc-400 leading-relaxed text-sm">
                       In an era of overwhelming digital noise, we explore how to preserve the true human signal. We study how our authentic voice, creativity, and storytelling can thrive, rather than be washed away, when co-creating with AI.
                     </p>
                   </div>
 
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <ThoughtWeaverSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">Cognitive Harmony</h3>
-                    <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                    <ThoughtWeaverSVG isDarkMode={true} />
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-50">Cognitive Harmony</h3>
+                    <p className="font-light text-zinc-400 leading-relaxed text-sm">
                       Prolonged interaction with AI shapes how we process the world. We focus on designing experiences that weave artificial intelligence naturally into our own human thought patterns, ensuring that we guide the technology, rather than the technology guiding us.
                     </p>
                   </div>
 
                   <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <EnvironmentalSyncSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-950 dark:text-zinc-50">Contextual Sync</h3>
-                    <p className="font-light text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
+                    <EnvironmentalSyncSVG isDarkMode={true} />
+                    <h3 className="font-serif text-2xl font-medium mb-4 mt-4 text-zinc-50">Contextual Sync</h3>
+                    <p className="font-light text-zinc-400 leading-relaxed text-sm">
                       True understanding requires holding multiple realities at once. We explore how AI can map to the different layers of our minds—from our professional jobs, to our personal lives, to raw ideation—so we don&apos;t have to constantly explain who we are.
                     </p>
                   </div>
@@ -930,13 +929,13 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 3: INITIATIVES */}
-              <div id="initiatives" className="md:col-span-3 border-r-0 md:border-r border-zinc-200 dark:border-zinc-800/50 p-6 sm:p-8 hidden md:block">
+              <div id="initiatives" className="md:col-span-3 border-r-0 md:border-r border-zinc-800/50 p-6 sm:p-8 hidden md:block">
                  <div className="sticky top-32 opacity-40">
                    <span className="font-mono text-xs uppercase tracking-widest transform -rotate-90 inline-block origin-top-left translate-y-24">03 — The Work</span>
                  </div>
               </div>
 
-              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-200 dark:border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-24 border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Reflection Background Variation 3: Mirror Symmetry Effect */}
                 <div className="absolute top-1/4 left-0 w-64 h-full bg-gradient-to-r from-[#3EB489]/10 to-transparent animate-symmetric-pulse pointer-events-none" />
                 <div className="absolute top-1/4 right-0 w-64 h-full bg-gradient-to-l from-teal-500/10 to-transparent animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '4s' }} />
@@ -944,16 +943,16 @@ export default function MirrorFactoryApp() {
                 <div className="absolute bottom-1/3 right-1/4 w-40 h-40 border border-teal-500/20 rounded-full animate-mirror-flip pointer-events-none" style={{ animationDelay: '5s', animationDuration: '18s' }} />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/5 to-transparent rounded-full blur-3xl animate-symmetric-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
 
-                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10 text-zinc-950 dark:text-zinc-50">Active Initiatives</h2>
+                <h2 className="font-serif text-4xl font-medium mb-12 md:mb-16 relative z-10 text-zinc-50">Active Initiatives</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                  <div className={`p-8 lg:p-12 border ${isDarkMode ? 'border-zinc-800 hover:border-[#3EB489]/50' : 'border-zinc-200 hover:border-[#3EB489]/50'} transition-all duration-500 group flex flex-col h-full bg-white/5`}>
-                    <ContextualLayersSVG isDarkMode={isDarkMode} />
-                    <h3 className="font-serif text-3xl font-medium mb-4 text-zinc-950 dark:text-zinc-50">Layers Whitepaper</h3>
+                  <div className="p-8 lg:p-12 border border-zinc-800 hover:border-[#3EB489]/50 transition-all duration-500 group flex flex-col h-full bg-white/5">
+                    <ContextualLayersSVG isDarkMode={true} />
+                    <h3 className="font-serif text-3xl font-medium mb-4 text-zinc-50">Layers Whitepaper</h3>
                     <div className="inline-block px-3 py-1 border mint-border text-[#3EB489] text-[10px] font-mono uppercase tracking-widest mb-6 w-max rounded-full bg-[#3EB489]/10">
                       Coming Soon
                     </div>
-                    <p className="text-zinc-600 dark:text-zinc-400 font-light mb-8 flex-grow leading-relaxed">
+                    <p className="text-zinc-400 font-light mb-8 flex-grow leading-relaxed">
                       An initial research concept focused entirely on managing context. This paper explores systems that can hold the different layers of your life simultaneously—from deep professional work to spontaneous ideation. We envision AI that acts as a buffer against context overload, honoring your complex mental state so you can spend less time managing tasks and more time actually living.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest mt-auto opacity-50">
@@ -961,11 +960,11 @@ export default function MirrorFactoryApp() {
                     </div>
                   </div>
 
-                  <a href="https://moonshotsandmagic.com" target="_blank" rel="noopener noreferrer" className={`p-6 sm:p-8 lg:p-12 border mint-border ${isDarkMode ? 'bg-[#3EB489]/5' : 'bg-[#3EB489]/10'} transition-all duration-500 group cursor-pointer flex flex-col h-full relative overflow-hidden shadow-lg shadow-[#3EB489]/5`}>
+                  <a href="https://moonshotsandmagic.com" target="_blank" rel="noopener noreferrer" className="p-6 sm:p-8 lg:p-12 border mint-border bg-[#3EB489]/5 transition-all duration-500 group cursor-pointer flex flex-col h-full relative overflow-hidden shadow-lg shadow-[#3EB489]/5">
                     <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#3EB489]/8 rounded-full blur-3xl group-hover:bg-[#3EB489]/15 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
-                    <SharedContextSVG isDarkMode={isDarkMode} />
+                    <SharedContextSVG isDarkMode={true} />
                     <h3 className="font-serif italic text-2xl md:text-3xl font-medium mb-4 relative z-10 text-zinc-950 dark:text-white">Moonshots & Magic:<br/>Digital Twin</h3>
-                    <p className="text-zinc-800 dark:text-zinc-300 font-light mb-12 flex-grow relative z-10 leading-relaxed text-sm md:text-base">
+                    <p className="text-zinc-300 font-light mb-12 flex-grow relative z-10 leading-relaxed text-sm md:text-base">
                       A living digital twin map system currently being developed for Central Florida. It serves as an initial demo of our contextual understanding framework, using AI to help others grasp a wide variety of contexts through a unique visualization. Acting as a digital second representation in its early stages, it is rooted in the historical context of our region—a place where Kennedy sparked a technological moonshot and Walt Disney built a world of imagination in the exact same decade.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest mt-auto mint-text relative z-10">
@@ -976,13 +975,13 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-white dark:bg-zinc-900/20 border-t border-zinc-200 dark:border-zinc-800/30">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-white dark:bg-zinc-900/20 border-t border-zinc-800/30">
                 <div className="flex flex-col items-start gap-4">
                   <BrandLogo className="w-16 h-16" />
                   <h2 className="font-sans text-4xl font-bold tracking-tighter leading-[0.9] text-zinc-950 dark:text-zinc-300 uppercase">
                     Mirror<br/>Factory
                   </h2>
-                  <p className="text-sm opacity-60 font-light max-w-sm leading-relaxed mt-2 text-zinc-900 dark:text-zinc-400">
+                  <p className="text-sm opacity-60 font-light max-w-sm leading-relaxed mt-2 text-zinc-400">
                     Building the reflective layer for the algorithmic age. <br/>
                     Based globally. Operating thoughtfully.
                   </p>
@@ -990,15 +989,15 @@ export default function MirrorFactoryApp() {
 
                 <div className="flex flex-col items-start md:items-end gap-6">
                   <div className="flex flex-col items-start md:items-end gap-4 opacity-80">
-                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"><Mail size={18} /> Contact — hello@mirrorfactory.com</a>
+                    <a href="mailto:hello@mirrorfactory.com" className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-300"><Mail size={18} /> Contact — hello@mirrorfactory.com</a>
                     <button
                       onClick={() => setCurrentPage('brand-guide')}
-                      className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-zinc-300"
+                      className="hover:text-[#EA580C] transition-colors flex items-center gap-2 text-sm font-medium text-zinc-300"
                     >
                       <Palette size={18} /> Brand Guide
                     </button>
                   </div>
-                  <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-900 dark:text-zinc-400">
+                  <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-400">
                     © {new Date().getFullYear()} Mirror Factory. All rights reserved.
                   </p>
                 </div>
@@ -1012,39 +1011,39 @@ export default function MirrorFactoryApp() {
             // =========================================================
             <>
               {/* BRAND GUIDE HERO */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-200 dark:border-zinc-800/50 bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-900/10 dark:to-transparent fade-in">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-32 border-b border-zinc-800/50 bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-900/10 dark:to-transparent fade-in">
                 <div className="max-w-5xl mx-auto">
                   <div className="flex items-center gap-3 mb-6 sm:mb-8 opacity-60">
                     <Palette size={18} className="mint-text" />
-                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-900 dark:text-zinc-400">Visual Identity & Design System</span>
+                    <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-400">Visual Identity & Design System</span>
                   </div>
-                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium leading-[0.95] mb-8 tracking-tight text-zinc-950 dark:text-zinc-50">
+                  <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium leading-[0.95] mb-8 tracking-tight text-zinc-50">
                     Brand <span className="italic mint-text">Guide.</span>
                   </h1>
-                  <p className="text-xl sm:text-2xl font-light text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+                  <p className="text-xl sm:text-2xl font-light text-zinc-400 max-w-2xl leading-relaxed">
                     The visual language of Mirror Factory. An editorial, high-contrast system designed to reflect intellect, research, and perfect symmetry between human and machine.
                   </p>
                 </div>
               </div>
 
               {/* SECTION 1: LOGO SYSTEM */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-200 dark:border-zinc-800/50">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-800/50">
                 <div className="max-w-6xl mx-auto">
                   <div className="flex items-center gap-3 mb-10">
                     <Fingerprint size={20} className="mint-text" />
-                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-950 dark:text-zinc-50">Logo System</h2>
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-50">Logo System</h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     {logoVariations.map((logo) => (
-                      <div key={logo.id} className="flex flex-col border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden">
+                      <div key={logo.id} className="flex flex-col border border-zinc-800 rounded-lg overflow-hidden">
                         <div id={logo.id} className={`h-48 flex items-center justify-center p-8 ${logo.bg}`}>
                           <LogoVariationSVG variant={logo.variant} color={logo.color} />
                         </div>
                         <div className="p-6 bg-white dark:bg-zinc-900/50">
-                          <p className="font-sans font-medium text-sm mb-2 text-zinc-950 dark:text-zinc-50">{logo.name}</p>
+                          <p className="font-sans font-medium text-sm mb-2 text-zinc-50">{logo.name}</p>
                           <p className="text-xs text-zinc-500 mb-3">{logo.variant} • {logo.color}</p>
-                          <DownloadSVGButton targetId={logo.id} filename={`mirror-factory-${logo.variant}-${logo.color}`} isDarkMode={isDarkMode} />
+                          <DownloadSVGButton targetId={logo.id} filename={`mirror-factory-${logo.variant}-${logo.color}`} isDarkMode={true} />
                         </div>
                       </div>
                     ))}
@@ -1053,36 +1052,36 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 2: COLOR PALETTE */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-200 dark:border-zinc-800/50">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-800/50">
                 <div className="max-w-6xl mx-auto">
                   <div className="flex items-center gap-3 mb-10">
                     <Palette size={20} className="mint-text" />
-                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-950 dark:text-zinc-50">Color Palette</h2>
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-50">Color Palette</h2>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-950 dark:text-zinc-50">Primary Colors</h3>
+                  <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-50">Primary Colors</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                     <div className="flex flex-col">
                       <div className="h-32 rounded-lg mint-bg mb-4 shadow-lg"></div>
-                      <p className="font-mono text-xs mb-1 text-zinc-950 dark:text-zinc-50">Mint Primary</p>
+                      <p className="font-mono text-xs mb-1 text-zinc-50">Mint Primary</p>
                       <p className="font-mono text-xs text-zinc-500">#3EB489</p>
                       <CopyButton text="#3EB489" label="Copy" />
                     </div>
                     <div className="flex flex-col">
                       <div className="h-32 rounded-lg bg-teal-700 mb-4 shadow-lg"></div>
-                      <p className="font-mono text-xs mb-1 text-zinc-950 dark:text-zinc-50">Teal Accent</p>
+                      <p className="font-mono text-xs mb-1 text-zinc-50">Teal Accent</p>
                       <p className="font-mono text-xs text-zinc-500">#0F766E</p>
                       <CopyButton text="#0F766E" label="Copy" />
                     </div>
                     <div className="flex flex-col">
                       <div className="h-32 rounded-lg bg-[#2563EB] mb-4 shadow-lg"></div>
-                      <p className="font-mono text-xs mb-1 text-zinc-950 dark:text-zinc-50">Traditional Blue</p>
+                      <p className="font-mono text-xs mb-1 text-zinc-50">Traditional Blue</p>
                       <p className="font-mono text-xs text-zinc-500">#2563EB</p>
                       <CopyButton text="#2563EB" label="Copy" />
                     </div>
                     <div className="flex flex-col">
-                      <div className="h-32 rounded-lg bg-zinc-950 dark:bg-zinc-50 mb-4 shadow-lg border border-zinc-200 dark:border-zinc-800"></div>
-                      <p className="font-mono text-xs mb-1 text-zinc-950 dark:text-zinc-50">Text Primary</p>
+                      <div className="h-32 rounded-lg bg-zinc-950 dark:bg-zinc-50 mb-4 shadow-lg border border-zinc-800"></div>
+                      <p className="font-mono text-xs mb-1 text-zinc-50">Text Primary</p>
                       <p className="font-mono text-xs text-zinc-500">#09090B / #FAFAFA</p>
                       <CopyButton text="#09090B" label="Copy" />
                     </div>
@@ -1091,36 +1090,36 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 3: TYPOGRAPHY */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-200 dark:border-zinc-800/50">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-800/50">
                 <div className="max-w-6xl mx-auto">
                   <div className="flex items-center gap-3 mb-10">
                     <Type size={20} className="mint-text" />
-                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-950 dark:text-zinc-50">Typography</h2>
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-50">Typography</h2>
                   </div>
 
                   <div className="space-y-12">
                     <div>
-                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-950 dark:text-zinc-50">Playfair Display (Serif)</h3>
+                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-50">Playfair Display (Serif)</h3>
                       <p className="text-sm text-zinc-500 mb-8">Used for headings and emphasis</p>
                       <div className="space-y-6">
-                        <p className="font-serif text-6xl text-zinc-950 dark:text-zinc-50">Intelligence Requires Reflection</p>
-                        <p className="font-serif text-4xl text-zinc-950 dark:text-zinc-50">The Mirror Factory</p>
+                        <p className="font-serif text-6xl text-zinc-50">Intelligence Requires Reflection</p>
+                        <p className="font-serif text-4xl text-zinc-50">The Mirror Factory</p>
                         <p className="font-serif text-2xl italic text-zinc-700 dark:text-zinc-300">Human-centered AI research</p>
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-950 dark:text-zinc-50">Inter (Sans-Serif)</h3>
+                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-50">Inter (Sans-Serif)</h3>
                       <p className="text-sm text-zinc-500 mb-8">Used for body text and UI elements</p>
                       <div className="space-y-4">
-                        <p className="font-sans text-3xl font-bold text-zinc-950 dark:text-zinc-50">Mirror Factory</p>
+                        <p className="font-sans text-3xl font-bold text-zinc-50">Mirror Factory</p>
                         <p className="font-sans text-xl font-medium text-zinc-800 dark:text-zinc-200">Building the reflective layer</p>
-                        <p className="font-sans text-base text-zinc-600 dark:text-zinc-400">We conduct research and build tools to ensure the machinery of tomorrow doesn't overwrite the humanity of today.</p>
+                        <p className="font-sans text-base text-zinc-400">We conduct research and build tools to ensure the machinery of tomorrow doesn't overwrite the humanity of today.</p>
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-950 dark:text-zinc-50">JetBrains Mono (Monospace)</h3>
+                      <h3 className="font-serif text-2xl font-medium mb-6 text-zinc-50">JetBrains Mono (Monospace)</h3>
                       <p className="text-sm text-zinc-500 mb-8">Used for labels and technical content</p>
                       <div className="space-y-4">
                         <p className="font-mono text-sm uppercase tracking-widest text-zinc-500">Human Factors Research</p>
@@ -1132,112 +1131,112 @@ export default function MirrorFactoryApp() {
               </div>
 
               {/* SECTION 4: SVG ILLUSTRATIONS */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-200 dark:border-zinc-800/50">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 lg:py-20 border-b border-zinc-800/50">
                 <div className="max-w-6xl mx-auto">
                   <div className="flex items-center gap-3 mb-10">
                     <Component size={20} className="mint-text" />
-                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-950 dark:text-zinc-50">Animated Illustrations</h2>
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-zinc-50">Animated Illustrations</h2>
                   </div>
 
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-2xl">
+                  <p className="text-zinc-400 mb-12 max-w-2xl">
                     Custom animated SVG components representing key concepts of human-AI interaction and context management.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div id="svg-symmetry" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Symmetry Mirror</h3>
+                    <div id="svg-symmetry" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Symmetry Mirror</h3>
                       <p className="text-sm text-zinc-500 mb-6">Perfect Human/AI Coexistence</p>
-                      <SymmetryMirrorSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-symmetry" filename="symmetry-mirror" isDarkMode={isDarkMode} />
+                      <SymmetryMirrorSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-symmetry" filename="symmetry-mirror" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-sieve" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">The Sieve</h3>
+                    <div id="svg-sieve" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">The Sieve</h3>
                       <p className="text-sm text-zinc-500 mb-6">Filtering the noise</p>
-                      <TheSieveSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-sieve" filename="the-sieve" isDarkMode={isDarkMode} />
+                      <TheSieveSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-sieve" filename="the-sieve" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-weaver" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Thought Weaver</h3>
+                    <div id="svg-weaver" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Thought Weaver</h3>
                       <p className="text-sm text-zinc-500 mb-6">Cognitive harmony with AI</p>
-                      <ThoughtWeaverSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-weaver" filename="thought-weaver" isDarkMode={isDarkMode} />
+                      <ThoughtWeaverSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-weaver" filename="thought-weaver" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-envsync" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Environmental Sync</h3>
+                    <div id="svg-envsync" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Environmental Sync</h3>
                       <p className="text-sm text-zinc-500 mb-6">Contextual understanding</p>
-                      <EnvironmentalSyncSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-envsync" filename="environmental-sync" isDarkMode={isDarkMode} />
+                      <EnvironmentalSyncSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-envsync" filename="environmental-sync" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-layers" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Contextual Layers</h3>
+                    <div id="svg-layers" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Contextual Layers</h3>
                       <p className="text-sm text-zinc-500 mb-6">Deep state mapping</p>
-                      <ContextualLayersSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-layers" filename="contextual-layers" isDarkMode={isDarkMode} />
+                      <ContextualLayersSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-layers" filename="contextual-layers" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-shared" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Shared Context</h3>
+                    <div id="svg-shared" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Shared Context</h3>
                       <p className="text-sm text-zinc-500 mb-6">Context sharing between people</p>
-                      <SharedContextSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-shared" filename="shared-context" isDarkMode={isDarkMode} />
+                      <SharedContextSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-shared" filename="shared-context" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-buffer" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Context Buffer</h3>
+                    <div id="svg-buffer" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Context Buffer</h3>
                       <p className="text-sm text-zinc-500 mb-6">Protection from overload</p>
-                      <ContextBufferSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-buffer" filename="context-buffer" isDarkMode={isDarkMode} />
+                      <ContextBufferSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-buffer" filename="context-buffer" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-agency" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Human Agency</h3>
+                    <div id="svg-agency" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Human Agency</h3>
                       <p className="text-sm text-zinc-500 mb-6">Maintaining human control</p>
-                      <HumanAgencySVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-agency" filename="human-agency" isDarkMode={isDarkMode} />
+                      <HumanAgencySVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-agency" filename="human-agency" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-empathy" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Empathy Engine</h3>
+                    <div id="svg-empathy" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Empathy Engine</h3>
                       <p className="text-sm text-zinc-500 mb-6">Human-AI understanding</p>
-                      <EmpathyEngineSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-empathy" filename="empathy-engine" isDarkMode={isDarkMode} />
+                      <EmpathyEngineSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-empathy" filename="empathy-engine" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-refinery" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Data Refinery</h3>
+                    <div id="svg-refinery" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Data Refinery</h3>
                       <p className="text-sm text-zinc-500 mb-6">Processing and insights</p>
-                      <DataRefinerySVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-refinery" filename="data-refinery" isDarkMode={isDarkMode} />
+                      <DataRefinerySVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-refinery" filename="data-refinery" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-temporal" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Temporal Sync</h3>
+                    <div id="svg-temporal" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Temporal Sync</h3>
                       <p className="text-sm text-zinc-500 mb-6">Time-aware context</p>
-                      <TemporalSyncSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-temporal" filename="temporal-sync" isDarkMode={isDarkMode} />
+                      <TemporalSyncSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-temporal" filename="temporal-sync" isDarkMode={true} />
                     </div>
 
-                    <div id="svg-sovereign" className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
-                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-950 dark:text-zinc-50">Sovereign Mind</h3>
+                    <div id="svg-sovereign" className="border border-zinc-800 rounded-lg p-8 bg-white dark:bg-zinc-900/30">
+                      <h3 className="font-serif text-xl font-medium mb-2 text-zinc-50">Sovereign Mind</h3>
                       <p className="text-sm text-zinc-500 mb-6">Personal autonomy</p>
-                      <SovereignMindSVG isDarkMode={isDarkMode} />
-                      <DownloadSVGButton targetId="svg-sovereign" filename="sovereign-mind" isDarkMode={isDarkMode} />
+                      <SovereignMindSVG isDarkMode={true} />
+                      <DownloadSVGButton targetId="svg-sovereign" filename="sovereign-mind" isDarkMode={true} />
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* FOOTER */}
-              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col items-center gap-8 bg-white dark:bg-zinc-900/20 text-center border-t border-zinc-200 dark:border-zinc-800/30">
+              <div className="md:col-span-12 p-6 sm:p-8 md:p-16 lg:px-24 flex flex-col items-center gap-8 bg-white dark:bg-zinc-900/20 text-center border-t border-zinc-800/30">
                 <BrandLogo className="w-16 h-16" />
-                <p className="text-sm text-zinc-900 dark:text-zinc-400 max-w-md">
+                <p className="text-sm text-zinc-400 max-w-md">
                   Mirror Factory Brand Guide • All assets and guidelines are proprietary
                 </p>
-                <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-900 dark:text-zinc-400">
+                <p className="text-xs font-mono opacity-40 uppercase tracking-widest text-zinc-400">
                   © {new Date().getFullYear()} Mirror Factory
                 </p>
               </div>
