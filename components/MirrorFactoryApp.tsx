@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Moon, Sun, ArrowRight, Twitter, Github, Mail, Palette, Type, Fingerprint, Component, Download, Copy, Check } from 'lucide-react'
 
 // ============================================================================
@@ -166,6 +166,96 @@ const GLOBAL_CSS_ANIMATIONS = `
     100% { transform: translateY(200%); opacity: 0; }
   }
   .animate-shimmer-scan { animation: shimmer-scan 10s ease-in-out infinite; }
+
+  @keyframes mesh-gradient-1 {
+    0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); opacity: 0.3; }
+    33% { transform: translate(20%, -15%) rotate(120deg) scale(1.2); opacity: 0.5; }
+    66% { transform: translate(-15%, 20%) rotate(240deg) scale(0.9); opacity: 0.4; }
+  }
+  @keyframes mesh-gradient-2 {
+    0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); opacity: 0.25; }
+    40% { transform: translate(-25%, 20%) rotate(160deg) scale(1.3); opacity: 0.45; }
+    80% { transform: translate(15%, -10%) rotate(320deg) scale(0.85); opacity: 0.35; }
+  }
+  @keyframes mesh-gradient-3 {
+    0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); opacity: 0.2; }
+    50% { transform: translate(10%, 25%) rotate(180deg) scale(1.15); opacity: 0.4; }
+  }
+  .animate-mesh-1 { animation: mesh-gradient-1 20s ease-in-out infinite; }
+  .animate-mesh-2 { animation: mesh-gradient-2 25s ease-in-out infinite; }
+  .animate-mesh-3 { animation: mesh-gradient-3 18s ease-in-out infinite; }
+
+  @keyframes float-particle-1 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+    50% { transform: translate(-30px, -60px); opacity: 0.8; }
+  }
+  @keyframes float-particle-2 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(40px, -80px); opacity: 0.7; }
+  }
+  @keyframes float-particle-3 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.35; }
+    50% { transform: translate(-20px, -70px); opacity: 0.75; }
+  }
+  .animate-particle-1 { animation: float-particle-1 8s ease-in-out infinite; }
+  .animate-particle-2 { animation: float-particle-2 10s ease-in-out infinite; }
+  .animate-particle-3 { animation: float-particle-3 12s ease-in-out infinite; }
+
+  @keyframes light-ray-1 {
+    0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-100%) rotate(35deg); }
+    50% { opacity: 0.15; transform: translateX(-50%) translateY(0%) rotate(35deg); }
+  }
+  @keyframes light-ray-2 {
+    0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-100%) rotate(-25deg); }
+    50% { opacity: 0.12; transform: translateX(-50%) translateY(0%) rotate(-25deg); }
+  }
+  .animate-light-ray-1 { animation: light-ray-1 12s ease-in-out infinite; }
+  .animate-light-ray-2 { animation: light-ray-2 15s ease-in-out infinite; }
+
+  @keyframes noise-grain {
+    0%, 100% { transform: translate(0, 0); opacity: 0.03; }
+    10% { transform: translate(-5%, -5%); opacity: 0.05; }
+    20% { transform: translate(-10%, 5%); opacity: 0.04; }
+    30% { transform: translate(5%, -10%); opacity: 0.06; }
+    40% { transform: translate(-5%, 5%); opacity: 0.03; }
+    50% { transform: translate(10%, 10%); opacity: 0.05; }
+    60% { transform: translate(5%, -5%); opacity: 0.04; }
+    70% { transform: translate(-10%, -10%); opacity: 0.06; }
+    80% { transform: translate(10%, -5%); opacity: 0.03; }
+    90% { transform: translate(-5%, 10%); opacity: 0.05; }
+  }
+  .animate-noise { animation: noise-grain 8s steps(10) infinite; }
+
+  @keyframes vignette-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.6; }
+  }
+  .animate-vignette { animation: vignette-pulse 10s ease-in-out infinite; }
+
+  @keyframes loading-bar-open {
+    0% { transform: scaleX(0); opacity: 1; }
+    50% { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0; }
+  }
+  .animate-loading-bar {
+    animation: loading-bar-open 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  @keyframes fade-in-content {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .animate-fade-in-content {
+    animation: fade-in-content 0.4s ease-out 0.6s forwards;
+  }
+
+  @keyframes ambient-bar-pulse {
+    0%, 100% { transform: scaleX(0); opacity: 0; }
+    50% { transform: scaleX(1); opacity: 0.03; }
+  }
+  .animate-ambient-bar {
+    animation: ambient-bar-pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 
   @keyframes ripple-reflect {
     0% { transform: translateY(0) scaleY(1); opacity: 0.15; }
@@ -732,6 +822,15 @@ export default function MirrorFactoryApp() {
     }
     return 'home'
   })
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Trigger loading animation on mount - only runs once
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1200) // Faster: 0.8s bars + 0.4s fade in
+    return () => clearTimeout(timer)
+  }, [])
 
   // Array of Logo Variations for the Brand Guide
   const logoVariations = [
@@ -753,6 +852,26 @@ export default function MirrorFactoryApp() {
     <div className="min-h-screen w-full transition-colors duration-700 font-sans bg-[#09090b] text-zinc-50 dark">
 
       <style dangerouslySetInnerHTML={{ __html: GLOBAL_CSS_ANIMATIONS }} />
+
+      {/* Loading Animation */}
+      {isLoading && (
+        <div className="fixed inset-0 z-[100] bg-[#09090b] grid grid-cols-12 gap-0">
+          {Array(12).fill(0).map((_, i) => (
+            <div
+              key={i}
+              className="h-full bg-[#3EB489]/20 animate-loading-bar origin-center"
+              style={{
+                animationDelay: `${i * 0.05}s`,
+                borderLeft: i > 0 ? '1px solid rgba(62, 180, 137, 0.3)' : 'none',
+                borderRight: i < 11 ? '1px solid rgba(62, 180, 137, 0.3)' : 'none'
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className={!isLoading ? 'animate-fade-in-content opacity-0' : 'opacity-0'}>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-zinc-800/80 transition-colors">
@@ -815,36 +934,32 @@ export default function MirrorFactoryApp() {
             <>
               {/* HERO */}
               <div className="md:col-span-12 border-b border-zinc-800/50 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center min-h-[85vh] relative overflow-hidden">
-                {/* Frosted glass grid overlay - Hero only */}
-                <div className="absolute inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 divide-x divide-transparent">
+                {/* Subtle static gradient background */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-[#3EB489]/5 to-transparent rounded-full blur-[120px] opacity-40" />
+                  <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-[#EA580C]/4 to-transparent rounded-full blur-[100px] opacity-30" />
+                </div>
+
+                {/* Film grain noise texture */}
+                <div className="absolute inset-0 pointer-events-none animate-noise" style={{
+                  backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulance type=\'fractalNoise\' baseFrequency=\'2.5\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                  backgroundSize: '200px 200px',
+                  mixBlendMode: 'overlay'
+                }} />
+
+                {/* Interactive cursor-based grid overlay - Hero only */}
+                <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-12 divide-x divide-transparent">
                   {Array(12).fill(0).map((_, i) => {
-                    const frostPanels = [2, 5, 7, 10];
-                    const isFrostPanel = frostPanels.includes(i);
-                    const animationDelay = frostPanels.indexOf(i) * 1.5;
+                    const isEdge = i === 0 || i === 11;
                     return (
                       <div
                         key={i}
-                        className={`h-full hidden md:block relative ${isFrostPanel ? 'animate-frost-glass' : ''}`}
-                        style={isFrostPanel ? { animationDelay: `${animationDelay}s` } : {}}
-                      >
-                        {isFrostPanel && (
-                          <>
-                            {/* Scanning shimmer effect */}
-                            <div
-                              className="absolute inset-x-0 h-32 bg-gradient-to-b from-transparent via-[#3EB489]/10 to-transparent animate-shimmer-scan"
-                              style={{ animationDelay: `${animationDelay + 2}s` }}
-                            />
-                          </>
-                        )}
-                      </div>
+                        className={`h-full hidden md:block relative ${!isEdge ? 'transition-all duration-700 ease-in-out hover:bg-gradient-to-b hover:from-[#3EB489]/[0.02] hover:via-[#3EB489]/[0.04] hover:to-[#3EB489]/[0.01] hover:backdrop-blur-[2px] hover:shadow-[inset_0_0_80px_rgba(62,180,137,0.08)]' : ''}`}
+                        style={!isEdge ? { transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' } : {}}
+                      />
                     );
                   })}
                 </div>
-
-                {/* Subtle blurred mint and orange background gradients */}
-                <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-br from-[#3EB489]/8 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
-                <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-[#EA580C]/6 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
-                <div className="absolute bottom-1/4 left-1/3 w-[450px] h-[450px] bg-gradient-to-tr from-[#3EB489]/5 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
 
                 <div className="relative z-10 w-full max-w-5xl text-center">
                   <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
@@ -1308,6 +1423,7 @@ export default function MirrorFactoryApp() {
 
         </div>
       </main>
+      </div>
     </div>
   )
 }
