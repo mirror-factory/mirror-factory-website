@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .mint-text {
+    color: #3EB489;
+  }
+  .mint-bg {
+    background-color: #3EB489;
+  }
+  .mint-border {
+    border-color: #3EB489;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3EB489;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+/* Base UI Animations */
+@keyframes reveal {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+/* Brand Logo Breathing Animations & Intro */
+@keyframes logo-pulse-left {
+  0%,
+  100% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes logo-pulse-right {
+  0%,
+  100% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+}
+
+.animate-logo-left {
+  animation: logo-pulse-left 4s ease-in-out infinite;
+}
+
+.animate-logo-right {
+  animation: logo-pulse-right 4s ease-in-out infinite;
+}
+
+@keyframes fadeInUpWord {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-logo-intro {
+  animation: fadeInUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-word-1 {
+  animation: fadeInUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-word-2 {
+  animation: fadeInUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+/* 1. Symmetry Mirror SVG Animations */
+@keyframes perfect-symmetry {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  50% {
+    transform: translateX(12px) rotate(3deg);
+  }
+}
+
+.animate-perfect-symmetry {
+  animation: perfect-symmetry 6s ease-in-out infinite;
+}
+
+/* 2. Sieve Animations */
+@keyframes sieve-drop {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(35px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(45px);
+    opacity: 0;
+  }
+}
+
+.animate-sieve-drop {
+  animation: sieve-drop 3s infinite ease-in;
+}
+
+@keyframes chaotic-flow {
+  0% {
+    stroke-dashoffset: 20;
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(3px) rotate(1deg);
+  }
+  100% {
+    stroke-dashoffset: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-chaotic-flow {
+  animation: chaotic-flow 1.5s linear infinite;
+}
+
+/* 3. Thought Weaver Animations */
+@keyframes draw-weave {
+  0% {
+    stroke-dashoffset: 300;
+    opacity: 0.5;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -300;
+    opacity: 0.5;
+  }
+}
+
+.animate-draw-weave {
+  animation: draw-weave 6s infinite linear;
+}
+
+@keyframes human-chaos {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    stroke-dashoffset: 28;
+    opacity: 0.3;
+  }
+}
+
+.animate-human-chaos {
+  animation: human-chaos 2s linear infinite;
+}
+
+/* 4. Environmental Sync Animations */
+@keyframes ping-slow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  transform-origin: 100px 100px;
+}
+
+/* 5. Contextual Layers Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes layer-seq-1 {
+  0%,
+  15% {
+    stroke: currentColor;
+    opacity: 0.2;
+    filter: none;
+  }
+  25%,
+  100% {
+    stroke: #3EB489;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px rgba(62, 180, 137, 0.4));
+  }
+}
+
+@keyframes layer-seq-2 {
+  0%,
+  35% {
+    stroke: currentColor;
+    opacity: 0.4;
+    filter: none;
+  }
+  45%,
+  100% {
+    stroke: #3EB489;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px rgba(62, 180, 137, 0.5));
+  }
+}
+
+@keyframes layer-seq-3 {
+  0%,
+  55% {
+    stroke: currentColor;
+    opacity: 0.6;
+    filter: none;
+  }
+  65%,
+  100% {
+    stroke: #3EB489;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(62, 180, 137, 0.8));
+  }
+}
+
+@keyframes master-glow {
+  0%,
+  75% {
+    filter: none;
+  }
+  85%,
+  95% {
+    filter: drop-shadow(0 0 35px rgba(62, 180, 137, 0.5));
+  }
+  100% {
+    filter: none;
+  }
+}
+
+.animate-layer-seq-1 {
+  animation: float 6s ease-in-out infinite, layer-seq-1 8s infinite;
+}
+
+.animate-layer-seq-2 {
+  animation: float 6s ease-in-out infinite, layer-seq-2 8s infinite;
+  animation-delay: 0.2s, 0s;
+}
+
+.animate-layer-seq-3 {
+  animation: float 6s ease-in-out infinite, layer-seq-3 8s infinite;
+  animation-delay: 0.4s, 0s;
+}
+
+.animate-master-glow {
+  animation: master-glow 8s infinite;
+}
+
+/* 6. Shared Context Animations */
+@keyframes scan-lines {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 20;
+  }
+}
+
+.animate-scan-lines {
+  animation: scan-lines 2s linear infinite;
+}
+
+@keyframes recipient-glow {
+  0%,
+  45% {
+    opacity: 0.3;
+    filter: none;
+    transform: scale(1);
+  }
+  50%,
+  60% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.8));
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0.3;
+    filter: none;
+    transform: scale(1);
+  }
+}
+
+.animate-recipient-glow {
+  animation: recipient-glow 4s infinite;
+  transform-origin: 230px 75px;
+}
