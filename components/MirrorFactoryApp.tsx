@@ -803,7 +803,7 @@ export default function MirrorFactoryApp() {
                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest opacity-50 text-zinc-400 animate-slide-up delay-500">— Ray Bradbury, Fahrenheit 451</p>
               </div>
 
-              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:pl-6 md:pr-12 lg:pl-8 lg:pr-16 xl:pl-10 xl:pr-20 flex flex-col justify-end pb-16 md:pb-24 lg:pb-32 min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
+              <div className="md:col-span-9 order-1 md:order-none p-6 sm:p-8 md:pl-4 md:pr-12 lg:pl-6 lg:pr-16 xl:pl-8 xl:pr-20 flex flex-col justify-center min-h-[60vh] sm:min-h-[70vh] md:min-h-[85vh] border-b border-zinc-800/50 relative overflow-hidden">
                 {/* Hero Background - Gradient Glows (Green + Copper/Orange) - Animated In */}
                 <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#3EB489]/15 to-transparent rounded-full animate-gradient-shift animate-pulse-glow pointer-events-none animate-slide-up" style={{ animationDelay: '0.2s' }} />
                 <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#EA580C]/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none animate-gradient-shift animate-slide-up" style={{ animationDelay: '0.3s' }} />
@@ -814,7 +814,7 @@ export default function MirrorFactoryApp() {
 
                 <div className="relative z-10 w-full">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6 md:mb-8 opacity-70 animate-slide-up delay-200">
-                    <span className="w-2 h-2 rounded-full mint-bg animate-pulse"/>
+                    <span className="w-2 h-2 rounded-full bg-[#EA580C] animate-pulse"/>
                     <span className="text-xs sm:text-sm md:text-base font-mono uppercase tracking-widest text-zinc-300">Human Factors AI Research</span>
                   </div>
 
@@ -824,7 +824,7 @@ export default function MirrorFactoryApp() {
                     Reflection.
                   </h1>
 
-                  <div className="border-l-4 border-l-[#EA580C]/60 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
+                  <div className="border-l-4 border-l-[#3EB489]/60 pl-4 sm:pl-6 md:pl-8 mb-8 sm:mb-12 md:mb-16 py-2 animate-slide-up delay-600">
                     <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-zinc-400 leading-snug font-extralight max-w-2xl">
                       We conduct research and build tools to ensure the machinery of tomorrow doesn&apos;t overwrite the humanity of today.
                     </p>
